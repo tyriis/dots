@@ -1,0 +1,10 @@
+/* GTK3 Catppuccin Macchiato overrides */
+@define-color base #24273a;
+@define-color text #cad3f5;
+@define-color bg_color @base;
+@define-color fg_color @text;
+
+window {
+    background-color: @base;
+    color: @text;
+}

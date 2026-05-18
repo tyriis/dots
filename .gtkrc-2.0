@@ -1,0 +1,5 @@
+gtk-theme-name = "Adwaita"
+gtk-icon-theme-name = "kora"
+gtk-cursor-theme-name = "Bibata-Modern-Ice"
+gtk-cursor-theme-size = 24
+gtk-font-name = "Fira Sans Semi-Bold 11"
