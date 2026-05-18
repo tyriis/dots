@@ -1,0 +1,116 @@
+@import "colors.css";
+
+* {
+    font-family: FiraCode Nerd Font, Fira Sans, sans-serif;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: @base;
+    color: @text;
+    border-top: 2px solid @surface0;
+}
+
+#workspaces button {
+    padding: 0 6px;
+    color: @overlay0;
+    background: transparent;
+    border-radius: 0;
+}
+
+#workspaces button.active {
+    color: @blue;
+    border-bottom: 2px solid @blue;
+}
+
+#workspaces button:hover {
+    background: @surface0;
+    color: @text;
+}
+
+#window {
+    color: @subtext0;
+    padding: 0 8px;
+}
+
+#cpu, #memory, #disk {
+    padding: 0 8px;
+    color: @subtext0;
+}
+
+#cpu {
+    color: @green;
+}
+
+#memory {
+    color: @yellow;
+}
+
+#disk {
+    color: @teal;
+}
+
+#clock {
+    padding: 0 10px;
+    color: @text;
+    font-weight: bold;
+}
+
+#pulseaudio {
+    padding: 0 8px;
+    color: @blue;
+}
+
+#pulseaudio.muted {
+    color: @red;
+}
+
+#network {
+    padding: 0 8px;
+    color: @green;
+}
+
+#network.disconnected {
+    color: @red;
+}
+
+#bluetooth {
+    padding: 0 8px;
+    color: @blue;
+}
+
+#bluetooth.disabled {
+    color: @overlay0;
+}
+
+#battery {
+    padding: 0 8px;
+    color: @green;
+}
+
+#battery.warning {
+    color: @yellow;
+}
+
+#battery.critical {
+    color: @red;
+}
+
+#backlight {
+    padding: 0 8px;
+    color: @yellow;
+}
+
+#tray {
+    padding: 0 6px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#custom-notification {
+    padding: 0 8px;
+    color: @mauve;
+}
