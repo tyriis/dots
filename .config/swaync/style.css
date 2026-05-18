@@ -1,0 +1,149 @@
+@define-color base   #24273a;
+@define-color mantle #1e2030;
+@define-color crust  #181926;
+@define-color text     #cad3f5;
+@define-color subtext0 #a5adcb;
+@define-color surface0 #363a4f;
+@define-color surface1 #494d64;
+@define-color blue     #8aadf4;
+@define-color green    #a6da95;
+@define-color yellow   #eed49f;
+@define-color red      #ed8796;
+@define-color mauve    #c6a0f6;
+
+* {
+    all: unset;
+    font-family: Fira Sans, sans-serif;
+    font-size: 13px;
+}
+
+.notification-row {
+    outline: none;
+    margin: 0;
+    padding: 0;
+}
+
+.notification {
+    background: @base;
+    border: 1px solid @surface1;
+    border-radius: 8px;
+    margin: 6px 12px;
+    padding: 12px;
+}
+
+.notification-content {
+    background: transparent;
+    padding: 4px;
+}
+
+.notification-default-action {
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.notification-default-action:hover {
+    background: @surface0;
+}
+
+.close-button {
+    background: @red;
+    color: @base;
+    border-radius: 100%;
+    padding: 2px 6px;
+    margin: 4px;
+}
+
+.notification-action {
+    background: @surface0;
+    color: @text;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin: 4px;
+}
+
+.notification-action:hover {
+    background: @surface1;
+}
+
+.summary {
+    color: @text;
+    font-weight: bold;
+}
+
+.body {
+    color: @subtext0;
+}
+
+.control-center {
+    background: @base;
+    border: 1px solid @surface1;
+    border-radius: 12px;
+    margin: 8px;
+    padding: 12px;
+}
+
+.control-center-dnd {
+    color: @mauve;
+    font-weight: bold;
+}
+
+.control-center-list {
+    background: transparent;
+}
+
+.widget-title {
+    color: @text;
+    font-weight: bold;
+    padding: 8px;
+}
+
+.widget-title > button {
+    color: @mauve;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.widget-title > button:hover {
+    background: @surface0;
+}
+
+.widget-buttons-grid {
+    padding: 8px;
+}
+
+.widget-buttons-grid > button {
+    background: @surface0;
+    color: @text;
+    border-radius: 6px;
+    padding: 8px;
+    margin: 2px;
+}
+
+.widget-buttons-grid > button:hover {
+    background: @surface1;
+}
+
+.widget-mpris {
+    background: @surface0;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 8px 0;
+}
+
+.widget-mpris > box {
+    background: transparent;
+}
+
+.widget-mpris-player {
+    padding: 4px;
+}
+
+.widget-mpris-title {
+    color: @text;
+    font-weight: bold;
+}
+
+.widget-mpris-subtitle {
+    color: @subtext0;
+    font-size: 11px;
+}

@@ -1,0 +1,74 @@
+* {
+    font: "Fira Sans 11";
+    background: #24273a;
+    background-alt: #363a4f;
+    foreground: #cad3f5;
+    selected: #8aadf4;
+    active: #a6da95;
+    urgent: #ed8796;
+    border-color: #494d64;
+    spacing: 4;
+}
+
+configuration {
+    show-icons: true;
+    display-drun: "";
+    display-run: "";
+    display-window: "";
+    sidebar-mode: false;
+    font: "Fira Sans 11";
+}
+
+@theme "default"
+
+window {
+    width: 600;
+    transparency: "real";
+    background-color: transparent;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    background-color: @background;
+    border: 2px solid @border-color;
+    border-radius: 8;
+    padding: 12;
+}
+
+inputbar {
+    children: [ prompt, entry ];
+    background-color: @background-alt;
+    border-radius: 6;
+    padding: 6;
+    margin: 0 0 8 0;
+}
+
+prompt {
+    text-color: @selected;
+}
+
+entry {
+    text-color: @foreground;
+    placeholder-color: @border-color;
+}
+
+listview {
+    lines: 8;
+    columns: 1;
+    fixed-height: true;
+}
+
+element {
+    padding: 6;
+    text-color: @foreground;
+}
+
+element.normal.urgent {
+    text-color: @urgent;
+}
+
+element.selected {
+    background-color: @selected;
+    text-color: @background;
+    border-radius: 4;
+}
