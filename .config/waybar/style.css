@@ -4,37 +4,31 @@
     font-family: Fira Sans, "FiraCode Nerd Font", sans-serif;
     font-size: 13px;
     font-weight: 400;
+    min-height: 0;
 }
 
 window#waybar {
     background-color: @base;
     color: @text;
     border-top: 2px solid @surface0;
-    border-bottom: none;
-    margin-bottom: -1px;
 }
 
 #workspaces button {
     padding: 0 6px;
     color: @overlay0;
     background: transparent;
-    border-radius: 4px;
+    border-radius: 0;
     font-weight: 600;
 }
 
 #workspaces button.active {
-    background-color: @surface0;
     color: @blue;
+    border-bottom: 2px solid @blue;
 }
 
 #workspaces button:hover {
     background: @surface0;
     color: @text;
-}
-
-#workspaces button.active:hover {
-    background: @blue;
-    color: @base;
 }
 
 #window {
