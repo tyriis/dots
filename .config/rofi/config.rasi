@@ -1,7 +1,7 @@
 /* ML4W-inspired rofi theme for Catppuccin Macchiato */
 
 * {
-    font: "FiraCode Nerd Font 12";
+    font: "Fira Sans 12";
     background: rgba(36, 39, 58, 0.85);
     background-alt: #363a4f;
     surface: rgba(54, 58, 79, 0.6);
@@ -22,7 +22,7 @@ configuration {
     display-window: "";
     display-filebrowser: "";
     drun-display-format: "{name}";
-    font: "FiraCode Nerd Font 12";
+    font: "Fira Sans 12";
     hover-select: false;
     scroll-method: 1;
 }
