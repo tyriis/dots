@@ -1,8 +1,8 @@
 @import "colors.css";
 
 * {
-    font-family: FiraCode Nerd Font, Fira Sans, sans-serif;
-    font-size: 13px;
+    font-family: Fira Sans, FiraCode Nerd Font, sans-serif;
+    font-size: 12px;
     min-height: 0;
 }
 
