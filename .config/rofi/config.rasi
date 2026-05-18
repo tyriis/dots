@@ -1,74 +1,218 @@
+/* ML4W-inspired rofi theme for Catppuccin Macchiato */
+
 * {
-    font: "Fira Sans 11";
-    background: #24273a;
+    font: "FiraCode Nerd Font 12";
+    background: rgba(36, 39, 58, 0.85);
     background-alt: #363a4f;
+    surface: rgba(54, 58, 79, 0.6);
     foreground: #cad3f5;
     selected: #8aadf4;
     active: #a6da95;
     urgent: #ed8796;
     border-color: #494d64;
+    on-surface: #cad3f5;
     spacing: 4;
 }
 
 configuration {
+    modi: "drun,run,window,filebrowser";
     show-icons: true;
-    display-drun: "";
+    display-drun: "";
     display-run: "";
     display-window: "";
-    sidebar-mode: false;
-    font: "Fira Sans 11";
+    display-filebrowser: "";
+    drun-display-format: "{name}";
+    font: "FiraCode Nerd Font 12";
+    hover-select: false;
+    scroll-method: 1;
 }
 
-@theme "default"
-
 window {
-    width: 600;
     transparency: "real";
+    width: 680;
+    height: 420;
+    padding: 0;
+    border: 0;
     background-color: transparent;
+    cursor: "default";
 }
 
 mainbox {
-    children: [ inputbar, listview ];
-    background-color: @background;
-    border: 2px solid @border-color;
-    border-radius: 8;
-    padding: 12;
+    children: [ imagebox, listbox ];
+    spacing: 0;
+    padding: 0;
+    orientation: horizontal;
+    background-color: var(background);
+    border: 0;
+    border-radius: 12;
+}
+
+imagebox {
+    padding: 20px;
+    background-color: transparent;
+    orientation: vertical;
+    children: [ inputbar, dummy, mode-switcher ];
 }
 
 inputbar {
-    children: [ prompt, entry ];
-    background-color: @background-alt;
-    border-radius: 6;
-    padding: 6;
-    margin: 0 0 8 0;
+    padding: 0;
+    margin: 0;
+    spacing: 0;
+    children: [ textbox-prompt-colon, entry ];
+    border-radius: 20;
+    background-color: var(surface);
 }
 
-prompt {
-    text-color: @selected;
+textbox-prompt-colon {
+    expand: false;
+    str: "  ";
+    padding: 10px 4px 0 0;
+    text-color: var(on-surface);
+    background-color: transparent;
 }
 
 entry {
-    text-color: @foreground;
-    placeholder-color: @border-color;
+    spacing: 8;
+    padding: 10px;
+    text-color: var(foreground);
+    cursor: text;
+    placeholder: "Search";
+    background-color: transparent;
+    placeholder-color: var(border-color);
+}
+
+dummy {
+    background-color: transparent;
+}
+
+mode-switcher {
+    orientation: horizontal;
+    width: 80;
+    spacing: 12;
+    padding: 16px;
+    background-color: transparent;
+}
+
+button {
+    padding: 12px;
+    border-radius: 20;
+    border: 0;
+    cursor: pointer;
+    background-color: var(background-alt);
+    text-color: var(on-surface);
+}
+
+button selected {
+    padding: 12px;
+    border-radius: 20;
+    background-color: var(surface);
+    text-color: var(selected);
+}
+
+listbox {
+    padding: 0;
+    spacing: 0;
+    orientation: vertical;
+    children: [ listview ];
+    border: 0;
+    background-color: var(background);
+}
+
+listbox separator {
+    background-color: transparent;
+    spacing: 0;
 }
 
 listview {
-    lines: 8;
+    padding: 16px;
+    spacing: 4;
     columns: 1;
+    lines: 8;
+    cycle: true;
+    dynamic: true;
+    scrollbar: false;
+    layout: vertical;
     fixed-height: true;
+    fixed-columns: true;
+    separator: false;
+    border: 0;
+    cursor: "default";
+    background-color: transparent;
+    text-color: var(foreground);
 }
 
 element {
-    padding: 6;
-    text-color: @foreground;
+    spacing: 10;
+    padding: 10px 14px;
+    cursor: pointer;
+    background-color: transparent;
+    text-color: var(on-surface);
+    border-radius: 8;
 }
 
-element.normal.urgent {
-    text-color: @urgent;
+element selected.normal {
+    background-color: var(selected);
+    text-color: var(background);
+    border-radius: 8;
 }
 
-element.selected {
-    background-color: @selected;
-    text-color: @background;
-    border-radius: 4;
+element normal.normal {
+    background-color: transparent;
+    text-color: var(on-surface);
+}
+
+element normal.urgent {
+    background-color: transparent;
+    text-color: var(urgent);
+}
+
+element normal.active {
+    background-color: transparent;
+    text-color: var(active);
+}
+
+element selected.urgent {
+    background-color: var(urgent);
+    text-color: var(background);
+}
+
+element selected.active {
+    background-color: var(active);
+    text-color: var(background);
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color: var(on-surface);
+}
+
+element alternate.urgent {
+    background-color: transparent;
+    text-color: var(urgent);
+}
+
+element alternate.active {
+    background-color: transparent;
+    text-color: var(active);
+}
+
+element selected.alternate {
+    background-color: var(selected);
+    text-color: var(background);
+}
+
+element-icon {
+    size: 48;
+    cursor: inherit;
+    background-color: transparent;
+    text-color: inherit;
+    border-radius: 0;
+}
+
+element-text {
+    vertical-align: 0.5;
+    horizontal-align: 0;
+    cursor: inherit;
+    background-color: transparent;
+    text-color: inherit;
 }
