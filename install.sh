@@ -66,6 +66,7 @@ if command -v yay &> /dev/null; then
         brave-bin
         bibata-cursor-theme
         kora-icon-theme
+        grimblast-git
     )
 
     gum spin --spinner dot --title "Installing AUR packages..." -- \
