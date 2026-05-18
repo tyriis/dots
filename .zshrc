@@ -42,7 +42,6 @@ export EDITOR=nvim
 export BROWSER=google-chrome-stable
 export TERMINAL=kitty
 export MOZ_ENABLE_WAYLAND=1
-export XDG_SCREENSHOTS_DIR="$HOME/Pictures/Screenshots"
 
 # History
 HISTSIZE=10000
