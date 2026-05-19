@@ -12,7 +12,7 @@
 
 * {
     font-family: Fira Sans, FiraCode Nerd Font, sans-serif;
-    font-size: 18px;
+    font-size: 22px;
 }
 
 window {
@@ -22,13 +22,16 @@ window {
 button {
     background-color: @surface0;
     color: @text;
+    font-weight: bold;
     border: 2px solid @surface1;
-    border-radius: 12px;
-    padding: 16px;
-    margin: 8px;
+    border-radius: 20px;
+    padding: 24px;
+    margin: 16px;
+    min-width: 180px;
+    min-height: 180px;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 24px;
+    background-size: 280px;
 }
 
 button:hover {
