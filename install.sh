@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
 # Dotfiles Installer
 # Requires: Arch Linux, pacman
@@ -16,35 +16,70 @@ if ! command -v pacman &> /dev/null; then
     exit 1
 fi
 
-# Install gum if not present
-if ! command -v gum &> /dev/null; then
-    echo "Installing gum..."
-    sudo pacman -S --noconfirm gum
-fi
-
-gum style \
-    --foreground 212 --border-foreground 212 --border double \
-    --align center --width 50 --margin "1 2" --padding "1 2" \
-    "Dotfiles Installer" "Arch Linux + Hyprland"
+echo "=== Dotfiles Installer ==="
+echo "Arch Linux + Hyprland"
+echo ""
 
 # System update
-gum spin --spinner dot --title "Updating system..." -- sudo pacman -Syu --noconfirm
+echo ":: Updating system..."
+sudo pacman -Syu --noconfirm
+
+# NVIDIA driver (proprietary, replaces nouveau)
+echo ""
+echo ":: Install NVIDIA proprietary driver? [y/N]"
+read -r nvidia_answer
+if [[ "$nvidia_answer" =~ ^[Yy]$ ]]; then
+    echo ":: Installing NVIDIA driver..."
+    sudo pacman -S --noconfirm --needed nvidia-open-dkms nvidia-utils efibootmgr
+
+    # Blacklist nouveau
+    echo "blacklist nouveau" | sudo tee /etc/modprobe.d/blacklist-nouveau.conf > /dev/null
+
+    # Add nvidia modules to initramfs
+    if grep -q "^MODULES=(i915" /etc/mkinitcpio.conf; then
+        sudo sed -i 's/^MODULES=(i915/MODULES=(i915 nvidia nvidia_modeset nvidia_uvm nvidia_drm/' /etc/mkinitcpio.conf
+    else
+        sudo sed -i 's/^MODULES=()/MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)/' /etc/mkinitcpio.conf
+    fi
+
+    # Add nvidia_drm.modeset=1 to kernel cmdline (needed for Wayland)
+    if command -v efibootmgr &> /dev/null; then
+        BOOT_ENTRY=$(sudo efibootmgr -v 2>/dev/null | grep -E "^Boot[0-9a-fA-F]+\*" | grep -i "linux" | head -1)
+        if [ -n "$BOOT_ENTRY" ]; then
+            BOOTNUM=$(echo "$BOOT_ENTRY" | sed 's/^Boot\([0-9a-fA-F]*\)\*.*/\1/')
+            if ! echo "$BOOT_ENTRY" | grep -q "nvidia_drm.modeset=1"; then
+                sudo efibootmgr -b "$BOOTNUM" --append-args "nvidia_drm.modeset=1" 2>/dev/null || \
+                    echo "!! Could not add kernel parameter. Run: sudo efibootmgr -b $BOOTNUM --append-args \"nvidia_drm.modeset=1\""
+            fi
+        else
+            echo "!! Could not detect boot entry. Add 'nvidia_drm.modeset=1' to your kernel cmdline after reboot."
+        fi
+    fi
+
+    # Rebuild initramfs
+    echo ":: Rebuilding initramfs..."
+    sudo mkinitcpio -P
+    echo ":: NVIDIA driver installed. Reboot required."
+fi
 
 # AUR helper (yay)
 if ! command -v yay &> /dev/null; then
-    gum confirm "Install yay (AUR helper)?" && {
-        gum spin --spinner dot --title "Installing yay..." -- \
-            sh -c "sudo pacman -S --noconfirm --needed base-devel git && \
-                   git clone https://aur.archlinux.org/yay.git /tmp/yay && \
-                   cd /tmp/yay && makepkg -si --noconfirm && \
-                   rm -rf /tmp/yay"
-    }
+    echo ""
+    echo ":: yay not found. Install? [y/N]"
+    read -r answer
+    if [[ "$answer" =~ ^[Yy]$ ]]; then
+        echo ":: Installing yay..."
+        sudo pacman -S --noconfirm --needed base-devel git
+        git clone https://aur.archlinux.org/yay.git /tmp/yay
+        cd /tmp/yay && makepkg -si --noconfirm
+        rm -rf /tmp/yay
+    fi
 fi
 
 # PACMAN PACKAGES
 pacman_packages=(
-    hyprland waybar kitty rofi-wayland swaync
-    hyprlock hypridle hyprsunset wlogout hyprpaper
+    hyprland waybar kitty rofi-wayland swaync uwsm
+    hyprlock hypridle hyprsunset hyprpaper
     btop htop cliphist wl-clipboard grim slurp
     pavucontrol blueman brightnessctl
     gtk3 gtk4 qt6ct xsettingsd
@@ -53,15 +88,18 @@ pacman_packages=(
     noto-fonts-emoji
     pipewire pipewire-pulse wireplumber
     polkit-gnome networkmanager nm-connection-editor network-manager-applet
-    eza bat ripgrep
+    eza bat ripgrep libfido2
+    neovim code starship openssh intel-ucode
 )
 
-gum spin --spinner dot --title "Installing pacman packages..." -- \
-    sudo pacman -S --noconfirm --needed "${pacman_packages[@]}"
+echo ""
+echo ":: Installing pacman packages..."
+sudo pacman -S --noconfirm --needed "${pacman_packages[@]}"
 
 # AUR PACKAGES
 if command -v yay &> /dev/null; then
     aur_packages=(
+        wlogout
         google-chrome-stable
         brave-bin
         bibata-cursor-theme
@@ -69,20 +107,26 @@ if command -v yay &> /dev/null; then
         grimblast-git
     )
 
-    gum spin --spinner dot --title "Installing AUR packages..." -- \
-        yay -S --noconfirm --needed "${aur_packages[@]}"
+    echo ""
+    echo ":: Installing AUR packages..."
+    yay -S --noconfirm --needed "${aur_packages[@]}"
 fi
 
-# MISE: install starship and fzf
+# MISE: install fzf
 if command -v mise &> /dev/null; then
-    gum spin --spinner dot --title "Installing starship via mise..." -- \
-        mise use -g starship@latest
-    gum spin --spinner dot --title "Installing fzf via mise..." -- \
-        mise use -g fzf@latest
+    echo ""
+    echo ":: Installing fzf via mise..."
+    mise use -g fzf@latest
 fi
 
-gum style \
-    --foreground 76 --border-foreground 76 --border double \
-    --align center --width 50 --margin "1 2" --padding "1 2" \
-    "Installation Complete!" \
-    "Run setup.sh to initialize dotfiles"
+# SSH AGENT: Enable user service for key caching
+echo ""
+echo ":: Enabling ssh-agent systemd user service..."
+systemctl --user enable --now ssh-agent.service 2>/dev/null || echo "!! Could not enable. Run: systemctl --user enable --now ssh-agent.service"
+
+echo ""
+echo "=== Installation Complete! ==="
+echo "Run ./setup.sh to initialize dotfiles"
+echo "After reboot, run: git config --global gpg.format ssh"
+echo "  && git config --global user.signingkey ~/.ssh/id_ed25519_sk.pub"
+echo "  && git config --global commit.gpgsign true"
