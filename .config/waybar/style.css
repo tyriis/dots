@@ -87,7 +87,8 @@ tooltip label {
 /* Center Group */
 #cpu {
   color: @mauve;
-  border-radius: 0;
+  border-radius: 1rem 0px 0px 1rem;
+  margin-left: 10px;
 }
 #memory {
   color: @pink;
