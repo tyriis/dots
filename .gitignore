@@ -4,3 +4,5 @@ projects/
 secrets/
 knowledge/
 .opencode-mem/
+.local/share/
+.local/state/
