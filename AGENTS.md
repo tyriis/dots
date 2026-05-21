@@ -4,7 +4,7 @@ Arch Linux + Hyprland (Wayland) dotfiles, Catppuccin Macchiato.
 
 ## CRITICAL: After every file edit
 
-**Always** present a summary of changes and ask if I want to commit via `dots commit -m "..."`.
+**Always** present a summary of changes and ask if I want to commit via `git --git-dir=$HOME/.dotfiles --work-tree=$HOME commit -m "..."`.
 This applies to ANY file tracked by the dotfiles repo (`install.sh`, `.config/*`, `.zshrc`, etc.).
 Never skip this step. Do not assume I will ask — proactively prompt after every edit.
 
@@ -34,13 +34,15 @@ Never skip this step. Do not assume I will ask — proactively prompt after ever
 ./setup.sh         # init bare git repo at ~/.dotfiles with $HOME as worktree
 ```
 
-After setup, use `dots` alias for git:
+Use the dotfiles git command for all git operations:
 ```sh
-dots status
-dots add .config/hypr/hyprland.conf
-dots commit -m "message"
-dots push
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME status
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME add .config/hypr/hyprland.conf
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME commit -m "message"
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME push
 ```
+
+(The `dots` alias is available in interactive zsh sessions only.)
 
 ## Keybindings (hyprland.conf)
 
@@ -61,7 +63,7 @@ dots push
 
 ## Workflow
 
-- After EVERY edit to a dotfiles-tracked file: present changes summary → ask `dots commit -m "..."`
+- After EVERY edit to a dotfiles-tracked file: present changes summary → ask `dots commit -m "..."` (or use the full `git --git-dir=$HOME/.dotfiles --work-tree=$HOME` command)
 - This is non-negotiable. Do it every time, without exception.
 
 ## Style conventions
