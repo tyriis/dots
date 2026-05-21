@@ -46,8 +46,9 @@ tooltip label {
 
 #custom-sep {
   color: @overlay0;
-  padding: 0.5rem 0.2rem;
+  padding: 0.5rem 0px;
   font-size: 16px;
+  margin: 5px 0;
 }
 /* Left Group */
 #custom-appmenu {
