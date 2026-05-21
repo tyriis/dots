@@ -16,3 +16,6 @@ knowledge/
 !.config/vesktop/settings/settings.json
 .config/google-chrome/
 .config/Code - OSS/
+.zsh_history
+.node_repl_history
+.config/htop/htop_history
