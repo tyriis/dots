@@ -17,7 +17,8 @@
       "*.config/gh/config.yml*": "ask",
       "*.env": "ask",
       "*.env.*": "ask",
-      "*.env.example": "allow"
+      "*.env.example": "allow",
+      "*secret*": "ask"
     },
     "edit": "allow",
     "bash": {
