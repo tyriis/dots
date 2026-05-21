@@ -42,8 +42,6 @@ git --git-dir=$HOME/.dotfiles --work-tree=$HOME commit -m "message"
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME push
 ```
 
-(The `dots` alias is available in interactive zsh sessions only.)
-
 ## Keybindings (hyprland.conf)
 
 | Key | Action |
@@ -63,7 +61,7 @@ git --git-dir=$HOME/.dotfiles --work-tree=$HOME push
 
 ## Workflow
 
-- After EVERY edit to a dotfiles-tracked file: present changes summary → ask `dots commit -m "..."` (or use the full `git --git-dir=$HOME/.dotfiles --work-tree=$HOME` command)
+- After EVERY edit to a dotfiles-tracked file: present changes summary → ask `git --git-dir=$HOME/.dotfiles --work-tree=$HOME commit -m "..."`
 - This is non-negotiable. Do it every time, without exception.
 
 ## Style conventions
