@@ -82,7 +82,7 @@ pacman_packages=(
     hyprlock hypridle hyprsunset hyprpaper
     btop htop cliphist wl-clipboard grim slurp
     pavucontrol blueman brightnessctl
-    gtk3 gtk4 qt6ct xsettingsd
+    gtk3 gtk4 qt6ct xdg-user-dirs xsettingsd
     mise zsh zsh-autosuggestions zsh-syntax-highlighting
     ttf-firacode-nerd ttf-jetbrains-mono-nerd ttf-fira-sans
     noto-fonts-emoji
