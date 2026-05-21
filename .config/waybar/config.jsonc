@@ -6,7 +6,7 @@
     "height": 32,
     "modules-left": ["custom/appmenu", "hyprland/workspaces", "hyprland/window"],
     "modules-center": [],
-    "modules-right": ["pulseaudio", "custom/sep", "cpu", "custom/sep", "memory", "custom/sep", "disk", "custom/sep", "network", "battery", "backlight", "custom/sep", "clock", "tray", "custom/notification"],
+    "modules-right": ["pulseaudio", "custom/sep", "cpu", "memory", "disk", "custom/sep", "network", "battery", "backlight", "custom/sep", "clock", "tray", "custom/notification"],
     "custom/sep": {
         "format": " | ",
         "tooltip": false
