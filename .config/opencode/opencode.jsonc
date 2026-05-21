@@ -20,6 +20,7 @@
     },
     "edit": "allow",
     "bash": {
+      "*.config/gh/config.yml*": "ask",
       "*secret*": "ask",
       "*": "allow",
       "gh pr list*": "allow",
