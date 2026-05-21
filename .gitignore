@@ -12,3 +12,4 @@ knowledge/
 .pki/
 .ssh/id_*
 .ssh/known_hosts*
+.config/vesktop/sessionData/
