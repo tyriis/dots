@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "autoupdate": false,
+  "autoupdate": "notify",
   "plugin": [
     "superpowers@git+https://github.com/obra/superpowers.git",
     "@devtheops/opencode-plugin-otel",
@@ -9,7 +9,7 @@
     "opencode-skill-creator"
   ],
   "lsp": true,
-  //"small_model": "github-copilot/gpt-5-mini",
+  "small_model": "github-copilot/gpt-5-mini",
   "permission": {
     "*": "ask",
     "read": {
@@ -24,7 +24,6 @@
     "bash": {
       "*.config/gh/config.yml*": "ask",
       "*secret*": "ask",
-      "*": "allow",
       "gh pr list*": "allow",
       "gh pr diff*": "allow",
       "gh search prs*": "allow",
@@ -42,7 +41,8 @@
       "kubectl get pod*": "allow",
       "kubectl describe pod*": "allow",
       "kubectl logs*": "allow",
-      "kubectl get helmreleases*": "allow"
+      "kubectl get helmreleases*": "allow",
+      "*": "allow"
     },
     "glob": "allow",
     "grep": "allow",
