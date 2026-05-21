@@ -34,6 +34,7 @@ alias grep='rg'
 alias vim='nvim'
 alias vi='nvim'
 alias dots='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias cat='ccat'
 alias update='sudo pacman -Syu'
 
 # Environment

@@ -99,12 +99,13 @@ sudo pacman -S --noconfirm --needed "${pacman_packages[@]}"
 # AUR PACKAGES
 if command -v yay &> /dev/null; then
     aur_packages=(
-        wlogout
-        google-chrome-stable
-        brave-bin
         bibata-cursor-theme
-        kora-icon-theme
+        brave-bin
+        ccat
+        google-chrome-stable
         grimblast-git
+        kora-icon-theme
+        wlogout
     )
 
     echo ""
