@@ -23,7 +23,7 @@
         "format": " {avail:0.1f}GB"
     },
     "disk": {
-        "format": " {percentage_free}%",
+        "format": " {free}",
         "path": "/"
     },
     "clock": {
