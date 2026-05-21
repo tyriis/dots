@@ -6,7 +6,7 @@
     "height": 32,
     "modules-left": ["custom/appmenu", "hyprland/workspaces", "hyprland/window"],
     "modules-center": ["cpu", "memory", "disk"],
-    "modules-right": ["pulseaudio", "network", "bluetooth", "battery", "backlight", "clock", "tray", "custom/notification"],
+    "modules-right": ["pulseaudio", "network", "battery", "backlight", "clock", "tray", "custom/notification"],
     "hyprland/workspaces": {
         "format": "{name}",
         "on-click": "activate"
