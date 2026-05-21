@@ -20,7 +20,7 @@
         "format": " {usage}%"
     },
     "memory": {
-        "format": " {percentage}%"
+        "format": " {avail:0.1f}GB"
     },
     "disk": {
         "format": " {percentage_free}%",
