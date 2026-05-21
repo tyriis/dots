@@ -1,13 +1,13 @@
 [{
     "output": "HDMI-A-2",
     "include": ["~/.config/waybar/modules.jsonc"],
-    "modules-left": ["custom/appmenu", "hyprland/workspaces", "hyprland/window"],
+    "modules-left": ["custom/appmenu", "hyprland/workspaces", "custom/sep", "hyprland/window"],
     "modules-center": [],
     "modules-right": ["cpu", "memory", "disk", "custom/sep", "network", "custom/notification"]
 }, {
     "output": "HDMI-A-4",
     "include": ["~/.config/waybar/modules.jsonc"],
-    "modules-left": ["custom/appmenu", "hyprland/workspaces", "hyprland/window"],
+    "modules-left": ["custom/appmenu", "hyprland/workspaces", "custom/sep", "hyprland/window"],
     "modules-center": [],
     "modules-right": ["pulseaudio", "custom/sep", "clock", "tray", "custom/notification"]
 }]
