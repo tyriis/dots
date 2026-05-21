@@ -76,7 +76,7 @@ tooltip label {
 /* Center Group */
 #cpu {
   color: @mauve;
-  border-radius: 1rem 0px 0px 1rem;
+  border-radius: 0;
 }
 #memory {
   color: @pink;
@@ -84,7 +84,7 @@ tooltip label {
 }
 #disk {
   color: @flamingo;
-  border-radius: 0px 1rem 1rem 0px;
+  border-radius: 0;
 }
 
 /* Right Group */
