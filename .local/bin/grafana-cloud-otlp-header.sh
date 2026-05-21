@@ -18,5 +18,5 @@ if [ -z "$GRAFANA_OTLP_CREDENTIALS" ]; then
   exit 1
 fi
 
-BASIC_TOKEN=$(printf '%s' "$GRAFANA_OTLP_CREDENTIALS" | base64)
-printf '{"Authorization":"Basic %s"}' "$BASIC_TOKEN"
+# BASIC_TOKEN=$(printf '%s' "$GRAFANA_OTLP_CREDENTIALS")
+printf '{"Authorization":"Basic %s"}' "$GRAFANA_OTLP_CREDENTIALS"

@@ -1,6 +1,7 @@
 [settings]
 experimental = true
 idiomatic_version_file_enable_tools = ["python"]
+env_shell_expand = true
 
 [settings.node]
 # compile = true
@@ -28,4 +29,4 @@ fzf = "latest"
 OPENCODE_ENABLE_TELEMETRY = "1"
 OPENCODE_OTLP_ENDPOINT = "https://otlp-gateway-prod-us-central-0.grafana.net/otlp"
 OPENCODE_OTLP_PROTOCOL = "http/protobuf"
-OPENCODE_OTLP_HEADERS_HELPER = "~/.local/bin/grafana-cloud-otlp-header.sh"
+OPENCODE_OTLP_HEADERS_HELPER = "$HOME/.local/bin/grafana-cloud-otlp-header.sh"
