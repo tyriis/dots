@@ -2,7 +2,7 @@
 
 MODE="${1:-area}"
 
-SCREENSHOTS_DIR="${XDG_SCREENSHOTS_DIR:-$HOME/Pictures/Screenshots}"
+SCREENSHOTS_DIR="${XDG_SCREENSHOTS_DIR:-$HOME/pictures/screenshots}"
 TEMP_FILE=$(mktemp /tmp/screenshot_XXXXX.png)
 trap 'rm -f "$TEMP_FILE"' EXIT
 
