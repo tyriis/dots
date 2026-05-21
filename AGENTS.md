@@ -53,6 +53,10 @@ dots push
 | Print | grimblast copy area |
 | Shift+Print | grimblast copy output |
 
+## Workflow
+
+- Always ask before committing changes. When edits are made to files tracked by the dotfiles repo, present a summary of changes and ask if I want to commit via `dots commit -m "..."`.
+
 ## Style conventions
 
 - Catppuccin Macchiato palette: bg `#24273a`, surface `#363a4f`, blue `#8aadf4`, text `#cad3f5`
