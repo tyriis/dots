@@ -7,3 +7,8 @@ knowledge/
 .local/share/
 .local/state/
 .dotfiles/
+.gnupg/
+.local/bin/mise
+.pki/
+.ssh/id_*
+.ssh/known_hosts*
