@@ -112,6 +112,15 @@ window#waybar {
     -gtk-icon-effect: dim;
 }
 
+#custom-appmenu {
+    padding: 0 8px;
+    color: @blue;
+}
+
+#custom-appmenu:hover {
+    color: @text;
+}
+
 #custom-notification {
     padding: 0 8px;
     color: @mauve;
