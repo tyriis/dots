@@ -1,82 +1,13 @@
-{
-    "layer": "top",
-    "margin-top": 5,
-    "margin-bottom": 5,
-    "position": "bottom",
-    "height": 32,
+[{
+    "output": "HDMI-A-2",
+    "include": ["~/.config/waybar/modules.jsonc"],
     "modules-left": ["custom/appmenu", "hyprland/workspaces", "hyprland/window"],
     "modules-center": [],
-    "modules-right": ["pulseaudio", "custom/sep", "cpu", "memory", "disk", "custom/sep", "network", "battery", "backlight", "custom/sep", "clock", "tray", "custom/notification"],
-    "custom/sep": {
-        "format": " | ",
-        "tooltip": false
-    },
-    "hyprland/workspaces": {
-        "format": "{name}",
-        "on-click": "activate"
-    },
-    "hyprland/window": {
-        "format": "{}",
-        "max-length": 40
-    },
-    "cpu": {
-        "format": " {usage}%"
-    },
-    "memory": {
-        "format": " {percentage}%"
-    },
-    "disk": {
-        "format": " {percentage_free}%",
-        "path": "/"
-    },
-    "clock": {
-        "format": "{:%Y-%m-%d %H:%M}",
-        "tooltip-format": "{:%A, %d %B %Y}",
-        "interval": 60
-    },
-    "pulseaudio": {
-        "format": " {volume}%{format_source}",
-        "format-source": "  {volume}%",
-        "format-source-muted": " ",
-        "on-click": "pavucontrol"
-    },
-    "network": {
-        "format-wifi": " {essid}",
-        "format-ethernet": " {ipaddr}",
-        "format-disconnected": " Disconnected",
-        "tooltip-format": "{ifname} via {gwaddr}",
-        "on-click": "nm-connection-editor"
-    },
-    "bluetooth": {
-        "format": " {status}",
-        "format-connected": " {device_alias}",
-        "format-disabled": "",
-        "on-click": "blueman-manager"
-    },
-    "battery": {
-        "format": "{icon} {capacity}%",
-        "format-icons": ["", "", "", "", ""],
-        "time-format": "{H}h{M}m"
-    },
-    "backlight": {
-        "format": " {percent}%",
-        "device": "intel_backlight"
-    },
-    "custom/appmenu": {
-        "format": "  ",
-        "on-click": "rofi -show drun",
-        "tooltip": false
-    },
-    "custom/notification": {
-        "format": " {empty}",
-        "format-empty": "",
-        "tooltip": true,
-        "exec-if": "pgrep swaync",
-        "on-click": "swaync-client -t",
-        "on-click-right": "swaync-client -d"
-    },
-    "tray": {
-        "icon-size": 16,
-        "spacing": 4
-    }
-}
+    "modules-right": ["cpu", "memory", "disk", "custom/sep", "network", "custom/notification"]
+}, {
+    "output": "HDMI-A-4",
+    "include": ["~/.config/waybar/modules.jsonc"],
+    "modules-left": ["custom/appmenu", "hyprland/workspaces", "hyprland/window"],
+    "modules-center": [],
+    "modules-right": ["pulseaudio", "custom/sep", "clock", "tray", "custom/notification"]
+}]
