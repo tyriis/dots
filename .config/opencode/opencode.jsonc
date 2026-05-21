@@ -14,6 +14,7 @@
     "*": "ask",
     "read": {
       "*": "allow",
+      "*.config/gh/config.yml*": "ask",
       "*.env": "ask",
       "*.env.*": "ask",
       "*.env.example": "allow"
