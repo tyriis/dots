@@ -36,6 +36,7 @@ tooltip label {
 #battery,
 #backlight,
 #tray,
+#custom-sep,
 #custom-appmenu,
 #custom-notification {
   background-color: @surface0;
@@ -43,6 +44,11 @@ tooltip label {
   margin: 5px 0;
 }
 
+#custom-sep {
+  color: @overlay0;
+  padding: 0.5rem 0.2rem;
+  font-size: 16px;
+}
 /* Left Group */
 #custom-appmenu {
   color: @blue;
