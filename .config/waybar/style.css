@@ -106,7 +106,7 @@ tooltip label {
   margin-left: 10px;
 }
 #network {
-  color: @green;
+  color: @blue;
   border-radius: 0;
 }
 #bluetooth {
