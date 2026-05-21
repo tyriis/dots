@@ -1,0 +1,11 @@
+{
+  "enabledProviders": "auto",
+  "percentDisplayMode": "used",
+  "enableToast": false,
+  "tuiSidebarPanel": {
+    "enabled": true
+  },
+  "tuiCompactStatus": {
+    "enabled": false
+  }
+}
