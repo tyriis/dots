@@ -38,7 +38,7 @@
     },
     "network": {
         "format-wifi": " {essid}",
-        "format-ethernet": " {ipaddr}/{cidr}",
+        "format-ethernet": " {ipaddr}",
         "format-disconnected": " Disconnected",
         "tooltip-format": "{ifname} via {gwaddr}",
         "on-click": "nm-connection-editor"
