@@ -18,5 +18,6 @@ knowledge/
 .config/Code - OSS/
 .zsh_history
 .node_repl_history
+.cache/
 .config/BraveSoftware/
 .config/htop/htop_history
