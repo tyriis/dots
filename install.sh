@@ -89,7 +89,7 @@ pacman_packages=(
     pipewire pipewire-pulse wireplumber
     polkit-gnome networkmanager nm-connection-editor network-manager-applet
     eza bat ripgrep libfido2
-    neovim code starship openssh intel-ucode
+    neovim code starship openssh intel-ucode tcpdump
 )
 
 echo ""
