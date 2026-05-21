@@ -2,6 +2,12 @@
 
 Arch Linux + Hyprland (Wayland) dotfiles, Catppuccin Macchiato.
 
+## CRITICAL: After every file edit
+
+**Always** present a summary of changes and ask if I want to commit via `dots commit -m "..."`.
+This applies to ANY file tracked by the dotfiles repo (`install.sh`, `.config/*`, `.zshrc`, etc.).
+Never skip this step. Do not assume I will ask — proactively prompt after every edit.
+
 ## Project structure
 
 ```
@@ -55,7 +61,8 @@ dots push
 
 ## Workflow
 
-- Always ask before committing changes. When edits are made to files tracked by the dotfiles repo, present a summary of changes and ask if I want to commit via `dots commit -m "..."`.
+- After EVERY edit to a dotfiles-tracked file: present changes summary → ask `dots commit -m "..."`
+- This is non-negotiable. Do it every time, without exception.
 
 ## Style conventions
 
