@@ -1,5 +1,7 @@
 {
     "layer": "top",
+    "margin-top": 5,
+    "margin-bottom": 5,
     "position": "bottom",
     "height": 32,
     "modules-left": ["custom/appmenu", "hyprland/workspaces", "hyprland/window"],

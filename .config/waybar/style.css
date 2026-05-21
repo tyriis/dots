@@ -1,131 +1,130 @@
-/* @import "themes/latte.css"; */
-/* @import "themes/frappe.css"; */
-/* @import "themes/macchiato.css"; */
 @import "themes/mocha.css";
-/* @import "colors.css"; */
 
 * {
-    font-family: Fira Sans, "FiraCode Nerd Font Propo", sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    min-height: 0;
+  font-family: Fira Sans, "FiraCode Nerd Font Propo", sans-serif;
+  font-size: 14px;
+  min-height: 0;
+  border: none;
+  box-shadow: none;
 }
 
-window#waybar {
-    background-color: @base;
-    color: @text;
-    border-top: 2px solid @surface0;
+#waybar {
+  background: transparent;
+  color: @text;
 }
 
-#workspaces button {
-    padding: 0 6px;
-    color: @overlay0;
-    background: transparent;
-    border-radius: 0;
-    font-weight: 600;
+/* Tooltips */
+tooltip {
+  background: @base;
+  border: 2px solid @mauve;
+  border-radius: 8px;
+}
+tooltip label {
+  color: @text;
 }
 
-#workspaces button.active {
-    color: @blue;
-    border-bottom: 2px solid @blue;
-}
-
-#workspaces button:hover {
-    background: @surface0;
-    color: @text;
-}
-
-#window {
-    color: @subtext0;
-    padding: 0 8px;
-}
-
-#cpu, #memory, #disk {
-    padding: 0 8px;
-    color: @subtext0;
-}
-
-#cpu {
-    color: @green;
-}
-
-#memory {
-    color: @yellow;
-}
-
-#disk {
-    color: @teal;
-}
-
-#clock {
-    padding: 0 10px;
-    color: @text;
-    font-weight: bold;
-}
-
-#pulseaudio {
-    padding: 0 8px;
-    color: @blue;
-}
-
-#pulseaudio.muted {
-    color: @red;
-}
-
-#network {
-    padding: 0 8px;
-    color: @green;
-}
-
-#network.disconnected {
-    color: @red;
-}
-
-#bluetooth {
-    padding: 0 8px;
-    color: @blue;
-}
-
-#bluetooth.disabled {
-    color: @overlay0;
-}
-
-#battery {
-    padding: 0 8px;
-    color: @green;
-}
-
-#battery.warning {
-    color: @yellow;
-}
-
-#battery.critical {
-    color: @red;
-}
-
-#backlight {
-    padding: 0 8px;
-    color: @yellow;
-}
-
-#tray {
-    padding: 0 6px;
-}
-
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-
-#custom-appmenu {
-    padding: 0 8px;
-    color: @blue;
-}
-
-#custom-appmenu:hover {
-    color: @text;
-}
-
+/* Pill grouping setup */
+#workspaces,
+#window,
+#cpu,
+#memory,
+#disk,
+#clock,
+#pulseaudio,
+#network,
+#bluetooth,
+#battery,
+#backlight,
+#tray,
+#custom-appmenu,
 #custom-notification {
-    padding: 0 8px;
-    color: @mauve;
+  background-color: @surface0;
+  padding: 0.5rem 1rem;
+  margin: 5px 0;
+}
+
+/* Left Group */
+#custom-appmenu {
+  color: @blue;
+  border-radius: 1rem 0px 0px 1rem;
+  margin-left: 10px;
+}
+#workspaces {
+  border-radius: 0;
+  padding: 0 0.5rem;
+}
+#workspaces button {
+  color: @lavender;
+  border-radius: 1rem;
+  padding: 0.4rem;
+  transition: all 0.2s ease-in-out;
+}
+#workspaces button.active {
+  color: @sky;
+  background-color: @surface1;
+}
+#workspaces button:hover {
+  color: @sapphire;
+  background-color: @surface2;
+}
+#window {
+  color: @text;
+  border-radius: 0px 1rem 1rem 0px;
+  margin-right: 10px;
+}
+
+/* Center Group */
+#cpu {
+  color: @mauve;
+  border-radius: 1rem 0px 0px 1rem;
+}
+#memory {
+  color: @pink;
+  border-radius: 0;
+}
+#disk {
+  color: @flamingo;
+  border-radius: 0px 1rem 1rem 0px;
+}
+
+/* Right Group */
+#pulseaudio {
+  color: @maroon;
+  border-radius: 1rem 0px 0px 1rem;
+  margin-left: 10px;
+}
+#network {
+  color: @peach;
+  border-radius: 0;
+}
+#bluetooth {
+  color: @yellow;
+  border-radius: 0;
+}
+#battery {
+  color: @green;
+  border-radius: 0;
+}
+#battery.charging {
+  color: @green;
+}
+#battery.warning:not(.charging) {
+  color: @red;
+}
+#backlight {
+  color: @teal;
+  border-radius: 0;
+}
+#clock {
+  color: @blue;
+  border-radius: 0;
+}
+#tray {
+  border-radius: 0;
+  padding: 0.5rem;
+}
+#custom-notification {
+  color: @lavender;
+  border-radius: 0px 1rem 1rem 0px;
+  margin-right: 10px;
 }
