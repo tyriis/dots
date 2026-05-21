@@ -12,5 +12,6 @@ knowledge/
 .pki/
 .ssh/id_*
 .ssh/known_hosts*
-.config/vesktop/sessionData/
+.config/vesktop/
+!.config/vesktop/settings/settings.json
 .config/google-chrome/
