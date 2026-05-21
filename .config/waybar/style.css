@@ -36,7 +36,6 @@ tooltip label {
 #battery,
 #backlight,
 #tray,
-#custom-sep,
 #custom-appmenu,
 #custom-notification {
   background-color: @surface0;
@@ -45,6 +44,7 @@ tooltip label {
 }
 
 #custom-sep {
+  background-color: @surface0;
   color: @overlay0;
   padding: 0.5rem 0px;
   font-size: 16px;
