@@ -105,6 +105,7 @@ if command -v yay &> /dev/null; then
         google-chrome-stable
         grimblast-git
         kora-icon-theme
+        vesktop
         wlogout
     )
 
