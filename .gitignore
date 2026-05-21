@@ -15,3 +15,4 @@ knowledge/
 .config/vesktop/
 !.config/vesktop/settings/settings.json
 .config/google-chrome/
+.config/Code - OSS/
