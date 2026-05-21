@@ -1,4 +1,8 @@
-@import "colors.css";
+/* @import "themes/latte.css"; */
+/* @import "themes/frappe.css"; */
+/* @import "themes/macchiato.css"; */
+@import "themes/mocha.css";
+/* @import "colors.css"; */
 
 * {
     font-family: Fira Sans, "FiraCode Nerd Font Propo", sans-serif;
