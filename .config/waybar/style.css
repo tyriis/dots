@@ -39,7 +39,7 @@ tooltip label {
 #custom-appmenu,
 #custom-notification {
   background-color: @surface0;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.5rem;
   margin: 5px 0;
 }
 
