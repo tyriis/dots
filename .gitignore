@@ -1,2 +1,6 @@
 .npm/
 go/
+projects/
+secrets/
+knowledge/
+.opencode-mem/
