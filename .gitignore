@@ -13,3 +13,4 @@ knowledge/
 .ssh/id_*
 .ssh/known_hosts*
 .config/vesktop/sessionData/
+.config/google-chrome/
