@@ -62,6 +62,17 @@ if [[ "$nvidia_answer" =~ ^[Yy]$ ]]; then
     echo ":: NVIDIA driver installed. Reboot required."
 fi
 
+# CUDA PATH
+if pacman -Q cuda &>/dev/null; then
+    echo ""
+    echo ":: Setting up CUDA environment..."
+    sudo tee /etc/profile.d/cuda.sh > /dev/null <<'EOF'
+export PATH=/opt/cuda/bin:$PATH
+export LD_LIBRARY_PATH=/opt/cuda/lib64:$LD_LIBRARY_PATH
+EOF
+    sudo chmod +x /etc/profile.d/cuda.sh
+fi
+
 # AUR helper (yay)
 if ! command -v yay &> /dev/null; then
     echo ""
@@ -80,7 +91,7 @@ fi
 pacman_packages=(
     hyprland waybar kitty rofi-wayland swaync uwsm
     hyprlock hypridle hyprsunset hyprpaper
-    btop htop cliphist wl-clipboard grim slurp
+    btop htop cliphist cuda wl-clipboard grim slurp
     pavucontrol blueman brightnessctl
     gtk3 gtk4 qt6ct xdg-user-dirs xsettingsd
     mise zsh zsh-autosuggestions zsh-syntax-highlighting
