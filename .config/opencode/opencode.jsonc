@@ -25,8 +25,6 @@
     "bash": {
       "*.config/gh/config.yml*": "ask",
       "*secret*": "ask",
-      "sudo *": "deny",
-      "sudo*": "deny",
       "gh pr list*": "allow",
       "gh pr diff*": "allow",
       "gh search prs*": "allow",
@@ -45,7 +43,9 @@
       "kubectl describe pod*": "allow",
       "kubectl logs*": "allow",
       "kubectl get helmreleases*": "allow",
-      "*": "allow"
+      "*": "allow",
+      "sudo *": "deny",
+      "sudo*": "deny"
     },
     "glob": "allow",
     "grep": "allow",
