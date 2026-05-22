@@ -68,9 +68,9 @@
         "baseURL": "http://localhost:8085/v1"
       },
       "models": {
-	"qwen2.5-7b-instruct-q3_k_m.gguf": {
+        "qwen2.5-7b-instruct-q3_k_m.gguf": {
           "name": "Qwen 2.5 VL 7b (local)"
-	}
+        }
       }
     }
   }
