@@ -18,7 +18,8 @@
       "*.env": "ask",
       "*.env.*": "ask",
       "*.env.example": "allow",
-      "*secret*": "ask"
+      "*secret*": "ask",
+      "documents/obsidian*": "allow"
     },
     "edit": "allow",
     "bash": {
