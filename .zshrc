@@ -1,5 +1,18 @@
 # Zsh Configuration
 
+# Start- und Ende-Tasten
+bindkey -e
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
+
+# Entfernen-Taste
+bindkey '^[[3~' delete-char
+
+# Bild-auf und Bild-ab (Verlauf durchsuchen)
+bindkey '^[[5~' up-line-or-history
+bindkey '^[[6~' down-line-or-history
+
+
 # mise (tool version manager)
 if command -v mise &> /dev/null; then
     eval "$(mise activate zsh)"
@@ -52,4 +65,4 @@ setopt SHARE_HISTORY
 setopt HIST_IGNORE_DUPS
 
 # Keybindings
-bindkey -e
+# bindkey -e
