@@ -9,8 +9,8 @@
     "opencode-skill-creator"
   ],
   "lsp": true,
-  // "small_model": "github-copilot/gpt-5-mini",
-  "small_model": "llamacpp/qwen2.5-7b-instruct-q3_k_m.gguf",
+  "small_model": "github-copilot/gpt-5-mini",
+  // "small_model": "llamacpp/qwen2.5-7b-instruct-q3_k_m.gguf",
   "permission": {
     "*": "ask",
     "read": {
