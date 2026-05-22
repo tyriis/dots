@@ -59,8 +59,9 @@ git --git-dir=$HOME/.dotfiles --work-tree=$HOME push
 | Print | grimblast copy area |
 | Shift+Print | grimblast copy output |
 
-## Workflow
+## Hard Rules
 
+- **NEVER run sudo.** I will run sudo commands myself. Show me the command and I'll run it.
 - After EVERY edit to a dotfiles-tracked file: present changes summary → ask `git --git-dir=$HOME/.dotfiles --work-tree=$HOME commit -m "..."`
 - This is non-negotiable. Do it every time, without exception.
 
