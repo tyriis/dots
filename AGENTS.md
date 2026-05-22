@@ -59,6 +59,13 @@ git --git-dir=$HOME/.dotfiles --work-tree=$HOME push
 | Print | grimblast copy area |
 | Shift+Print | grimblast copy output |
 
+## CRITICAL: Git merge policy
+
+- **NEVER, under any circumstances, squash merge a pull request.** This is strictly forbidden.
+- Always use merge commit (`gh pr merge --merge`) or rebase merge (`gh pr merge --rebase`) — never `--squash`.
+- Squash merging destroys commit history, buries authorship, and makes `git bisect` and changelog generation impossible.
+- This rule applies in every repo, every PR, without exception. No discussion. No negotiation.
+
 ## Hard Rules
 
 - **NEVER run sudo.** I will run sudo commands myself. Show me the command and I'll run it.
