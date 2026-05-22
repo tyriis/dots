@@ -27,6 +27,7 @@ fzf = "latest"
 
 [env]
 OBSIDIAN_VAULT_PATH = "$HOME/documents/obsidian"
+XKB_DEFAULT_VARIANT = "nodeadkeys"
 OPENCODE_ENABLE_TELEMETRY = "1"
 OPENCODE_OTLP_ENDPOINT = "https://otlp-gateway-prod-us-central-0.grafana.net/otlp"
 OPENCODE_OTLP_PROTOCOL = "http/protobuf"
