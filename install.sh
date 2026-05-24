@@ -133,6 +133,11 @@ if command -v mise &> /dev/null; then
     mise use -g fzf@latest
 fi
 
+# SYSTEMD LOGIND: Ignore Power Key
+echo ""
+echo ":: Configuring systemd-logind to let Hyprland handle the power key..."
+sudo sed -i 's/^#*HandlePowerKey=.*/HandlePowerKey=ignore/' /etc/systemd/logind.conf
+
 # SSH AGENT: Enable user service for key caching
 echo ""
 echo ":: Enabling ssh-agent systemd user service..."
