@@ -66,3 +66,9 @@ setopt HIST_IGNORE_DUPS
 
 # Keybindings
 # bindkey -e
+
+# Add SSH key if agent has no keys
+ssh-add -l >/dev/null 2>&1
+if [ $? -eq 1 ]; then
+    ssh-add ~/.ssh/id_ed25519_sk_touch
+fi
