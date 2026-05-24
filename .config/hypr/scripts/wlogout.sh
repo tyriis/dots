@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+
+if pgrep -x "wlogout" > /dev/null; then
+    pkill -x "wlogout"
+    exit 0
+fi
+
 export XKB_DEFAULT_LAYOUT=de
 export XKB_DEFAULT_VARIANT=nodeadkeys
 res_w=$(hyprctl -j monitors | jq '.[] | select(.focused==true) | .width')
