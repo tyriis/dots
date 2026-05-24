@@ -20,6 +20,7 @@
   logo = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ (%cn)" --decorate
   undo = reset HEAD~
   yolo = !git add -A && git commit -m \"$(curl -s https://whatthecommit.com/index.txt)\"
+  broom = "!git fetch -p && git switch main && git pull && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D"
 
 [commit]
   # show diff in commit editor window
