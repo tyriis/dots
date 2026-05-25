@@ -1,0 +1,12 @@
+
+[Default Applications]
+x-scheme-handler/discord=vesktop.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+text/html=google-chrome.desktop
+text/xml=google-chrome.desktop
+application/xhtml+xml=google-chrome.desktop
+application/xml=google-chrome.desktop
+application/rdf+xml=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
