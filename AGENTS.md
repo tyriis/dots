@@ -72,6 +72,14 @@ git --git-dir=$HOME/.dotfiles --work-tree=$HOME push
 - After EVERY edit to a dotfiles-tracked file: present changes summary → ask `git --git-dir=$HOME/.dotfiles --work-tree=$HOME commit -m "..."`
 - This is non-negotiable. Do it every time, without exception.
 
+## Session Retrospective Misalignment Check
+
+When asked to "check this session for misalignments" or similar retrospective questions:
+
+- **"Misalignment" means process/communication gaps** — moments where I needed correction because instructions weren't clear enough, or where my behavior didn't meet expectations.
+- **Do NOT interpret as code-level technical issues** (hardcoded IDs, architectural patterns, missing validation, etc.) unless the user explicitly asks for that.
+- If uncertain which interpretation is intended, ask for clarification.
+
 ## Style conventions
 
 - Catppuccin Macchiato palette: bg `#24273a`, surface `#363a4f`, blue `#8aadf4`, text `#cad3f5`
