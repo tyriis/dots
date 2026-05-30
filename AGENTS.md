@@ -66,6 +66,13 @@ git --git-dir=$HOME/.dotfiles --work-tree=$HOME push
 - Squash merging destroys commit history, buries authorship, and makes `git bisect` and changelog generation impossible.
 - This rule applies in every repo, every PR, without exception. No discussion. No negotiation.
 
+## Pre-commit Checklist
+
+Before any git commit, verify:
+1. **Branch name**: `<bugfix|feature>/<kebab-case-name>`, max 40 chars
+2. **Commit message**: ≤ 72 chars, imperative mood, `<type>(<scope>): <description>`
+3. **Show message to user** and get explicit approval before running `git commit`
+
 ## Hard Rules
 
 - **NEVER run sudo.** I will run sudo commands myself. Show me the command and I'll run it.
