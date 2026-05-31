@@ -21,6 +21,4 @@ Thumbs.db
 # to change depending on the environment.
 #
 *.tfvars
-
-# superpower plan and spec
-docs/superpowers
+sessions/*
