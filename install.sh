@@ -96,6 +96,7 @@ pacman_packages=(
     gtk3 gtk4 qt6ct xdg-user-dirs xsettingsd
     mise zsh zsh-autosuggestions zsh-syntax-highlighting
     ttf-firacode-nerd ttf-jetbrains-mono-nerd ttf-fira-sans
+    noto-fonts-cjk
     noto-fonts-emoji
     pipewire pipewire-pulse wireplumber
     polkit-gnome networkmanager nm-connection-editor network-manager-applet
