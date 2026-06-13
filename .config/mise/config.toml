@@ -8,21 +8,21 @@ env_shell_expand = true
 gpg_verify = false
 
 [tools]
-"npm:pnpm" = "11.3.0"
+"npm:pnpm" = "11.6.0"
 "aqua:direnv/direnv" = "2.37.1"
-"aqua:derailed/k9s" = "0.50.18"
-"aqua:kubernetes/kubernetes/kubectl" = "1.36.1"
+"aqua:derailed/k9s" = "0.51.0"
+"aqua:kubernetes/kubernetes/kubectl" = "1.36.2"
 "aqua:go-task/task" = "3.51.1"
-"aqua:jdx/usage" = "3.3.0"
-"aqua:mikefarah/yq" = "4.53.2"
+"aqua:jdx/usage" = "3.5.0"
+"aqua:mikefarah/yq" = "4.53.3"
 "aqua:jqlang/jq" = "1.8.1"
 "aqua:minio/mc" = "RELEASE.2025-08-13T08-35-41Z"
 "github:openbao/openbao" = "2.5.4"
-"aqua:cli/cli" = "2.92.0"
-"github:jdx/fnox" = "1.25.1"
-opencode = "latest"
-fzf = "latest"
-node = "26.2.0"
+"aqua:cli/cli" = "2.94.0"
+"github:jdx/fnox" = "1.26.0"
+"aqua:anomalyco/opencode" = "1.17.4"
+"aqua:junegunn/fzf" = "0.73.1"
+"core:node" = "26.3.0"
 
 [env]
 OBSIDIAN_VAULT_PATH = "$HOME/documents/obsidian"
