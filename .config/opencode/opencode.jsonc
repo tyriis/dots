@@ -20,6 +20,7 @@
       "*.env.*": "ask",
       "*.env.example": "allow",
       "*secret*": "ask",
+      "*external-secret.yaml": "allow",
       "documents/obsidian*": "allow",
     },
     "edit": "allow",
