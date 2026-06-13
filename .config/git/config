@@ -49,7 +49,7 @@
   required = true
 
 [credential "https://github.com"]
-  helper = !/usr/bin/gh auth git-credential
+  helper = !/home/nils/.local/share/mise/shims/gh auth git-credential
 
 [credential "https://gist.github.com"]
-  helper = !/usr/bin/gh auth git-credential
+  helper = !/home/nils/.local/share/mise/shims/gh auth git-credential
