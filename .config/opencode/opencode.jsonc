@@ -6,10 +6,10 @@
     "@devtheops/opencode-plugin-otel",
     "opencode-mem",
     "@slkiser/opencode-quota",
-    "opencode-skill-creator"
+    "opencode-skill-creator",
   ],
   "lsp": true,
-  "small_model": "github-copilot/gpt-5-mini",
+  "small_model": "opencode-go/deepseek-v4-flash",
   // "small_model": "llamacpp/qwen2.5-7b-instruct-q3_k_m.gguf",
   "permission": {
     "*": "ask",
@@ -20,7 +20,7 @@
       "*.env.*": "ask",
       "*.env.example": "allow",
       "*secret*": "ask",
-      "documents/obsidian*": "allow"
+      "documents/obsidian*": "allow",
     },
     "edit": "allow",
     "bash": {
@@ -46,7 +46,7 @@
       "kubectl get helmreleases*": "allow",
       "*": "allow",
       "sudo *": "deny",
-      "sudo*": "deny"
+      "sudo*": "deny",
     },
     "glob": "allow",
     "grep": "allow",
@@ -58,20 +58,20 @@
     "webfetch": "allow",
     "websearch": "allow",
     "external_directory": "ask",
-    "doom_loop": "ask"
+    "doom_loop": "ask",
   },
   "provider": {
     "llamacpp": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "Llama.cpp Local Server",
       "options": {
-        "baseURL": "http://localhost:8085/v1"
+        "baseURL": "http://localhost:8085/v1",
       },
       "models": {
         "qwen2.5-7b-instruct-q3_k_m.gguf": {
-          "name": "Qwen 2.5 VL 7b (local)"
-        }
-      }
-    }
-  }
+          "name": "Qwen 2.5 VL 7b (local)",
+        },
+      },
+    },
+  },
 }
