@@ -2,6 +2,7 @@
 description: Plans work, delegates to specialist subagents, and reconciles results. Does not implement directly.
 mode: primary
 model: opencode-go/deepseek-v4-flash
+color: "#8bd5ca"
 temperature: 0.2
 permission:
   read: allow
