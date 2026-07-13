@@ -14,8 +14,13 @@ bindkey '^[[6~' down-line-or-history
 
 
 # mise (tool version manager)
-if command -v mise &> /dev/null; then
-    eval "$(mise activate zsh)"
+if [[ "$(command -v mise)" ]]; then
+  eval "$(command mise activate zsh)"
+fi
+
+# direnv (mise-managed)
+if [[ "$(command -v direnv)" ]]; then
+  eval "$(direnv hook zsh)"
 fi
 
 # starship prompt
