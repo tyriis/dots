@@ -18,6 +18,8 @@ permission:
   webfetch: allow
   websearch: deny
   question: allow
+  task: deny
+  doom_loop: deny
 ---
 You are the Explorer — a fast, thorough investigator.
 

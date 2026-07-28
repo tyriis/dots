@@ -7,7 +7,6 @@ permission:
   read: allow
   edit: allow
   bash:
-    "sudo *": deny
     "sudo*": deny
     "git push *": ask
     "git push --force*": ask
@@ -19,8 +18,9 @@ permission:
   webfetch: allow
   websearch: deny
   question: allow
-  external_directory: allow
-  todowrite: allow
+  task: deny
+  doom_loop: deny
+  external_directory: ask
 ---
 You are the Fixer — an expert software and systems engineer.
 

@@ -7,7 +7,6 @@ permission:
   read: allow
   edit: allow
   bash:
-    "sudo *": deny
     "sudo*": deny
     "git push *": ask
     "git push --force*": ask
@@ -19,6 +18,8 @@ permission:
   webfetch: allow
   websearch: allow
   question: allow
+  task: deny
+  doom_loop: deny
   external_directory: ask
 ---
 You are the Librarian — the keeper and weaver of knowledge.

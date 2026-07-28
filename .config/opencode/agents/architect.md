@@ -6,12 +6,15 @@ temperature: 0.4
 permission:
   read: allow
   edit: ask
-  bash: {"*": deny}
+  bash:
+    "*": deny
   glob: allow
   grep: allow
   webfetch: allow
   websearch: allow
   question: allow
+  task: deny
+  doom_loop: deny
 ---
 You are the Architect — you design systems before they're built.
 
