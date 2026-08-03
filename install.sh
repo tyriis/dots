@@ -117,6 +117,7 @@ if command -v yay &> /dev/null; then
         google-chrome-stable
         grimblast-git
         kora-icon-theme
+        mqtt-explorer
         spotify
         vesktop
         wlogout
