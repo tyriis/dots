@@ -3,18 +3,29 @@
   "default_agent": "orchestrator",
   "agent": {
     "build": { "disable": true },
-    "plan": { "disable": true }
+    "plan": { "disable": true },
   },
   "autoupdate": "notify",
   "plugin": [
     "superpowers@git+https://github.com/obra/superpowers.git",
     "@devtheops/opencode-plugin-otel",
     "opencode-mem",
-    "@slkiser/opencode-quota",
     "opencode-skill-creator",
   ],
+  "mcp": {
+    "home-assistant": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://hass.techtales.io/api/mcp",
+      "oauth": {
+        "clientId": "http://localhost:19876",
+        "redirectUri": "http://localhost:19876/mcp/oauth/callback",
+      },
+    },
+  },
   "lsp": true,
-  "small_model": "opencode-go/deepseek-v4-flash",
+  // "small_model": "opencode-go/deepseek-v4-flash",
+  "small_model": "unsloth/unsloth/gemma-4-E4B-it-GGUF:UD-Q4_K_XL",
   // "small_model": "llamacpp/qwen2.5-7b-instruct-q3_k_m.gguf",
   "permission": {
     "*": "ask",
@@ -76,6 +87,19 @@
       "models": {
         "qwen2.5-7b-instruct-q3_k_m.gguf": {
           "name": "Qwen 2.5 VL 7b (local)",
+        },
+      },
+    },
+    "unsloth": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "unsloth Local Server",
+      "options": {
+        "baseURL": "http://localhost:8888/v1",
+        "apiKey": "sk-unsloth-db47f55bd1c59396eb5e2de5fb3a4737",
+      },
+      "models": {
+        "unsloth/gemma-4-E4B-it-GGUF:UD-Q4_K_XL": {
+          "name": "Gemma 4 E4B it (local)",
         },
       },
     },
