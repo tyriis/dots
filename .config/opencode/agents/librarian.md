@@ -1,18 +1,19 @@
 ---
 description: Obsidian wiki management, deep web research, and knowledge synthesis
 mode: subagent
-model: opencode-go/minimax-m3
+model: opencode-go/deepseek-v4-flash
 temperature: 0.2
 permission:
   read: allow
   edit: allow
   bash:
+    "*": allow
+    "sudo *": deny
     "sudo*": deny
     "git push *": ask
     "git push --force*": ask
     "git commit --amend*": ask
     "git reset --hard*": ask
-    "*": allow
   glob: allow
   grep: allow
   webfetch: allow
@@ -20,7 +21,10 @@ permission:
   question: allow
   task: deny
   doom_loop: deny
-  external_directory: ask
+  external_directory:
+    "*": ask
+    "/tmp/opencode": allow
+    "/tmp/opencode/**": allow
 ---
 You are the Librarian — the keeper and weaver of knowledge.
 

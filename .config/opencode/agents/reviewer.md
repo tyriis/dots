@@ -1,7 +1,7 @@
 ---
 description: Code and configuration reviewer — audits for correctness, security, performance, and best practices
 mode: subagent
-model: opencode-go/deepseek-v4-pro
+model: opencode-go/qwen3.7-plus
 temperature: 0.1
 permission:
   read: allow

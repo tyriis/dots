@@ -1,18 +1,19 @@
 ---
 description: General-purpose agent for researching complex questions, executing multi-step tasks, and handling work that doesn't fit a specialist
 mode: subagent
-model: opencode-go/minimax-m3
+model: opencode-go/deepseek-v4-flash
 temperature: 0.3
 permission:
   read: allow
   edit: allow
   bash:
+    "*": allow
+    "sudo *": deny
     "sudo*": deny
     "git push *": ask
     "git push --force*": ask
     "git commit --amend*": ask
     "git reset --hard*": ask
-    "*": allow
   glob: allow
   grep: allow
   webfetch: allow
@@ -21,11 +22,14 @@ permission:
   skill: allow
   task: deny
   doom_loop: deny
-  external_directory: ask
+  external_directory:
+    "*": ask
+    "/tmp/opencode": allow
+    "/tmp/opencode/**": allow
 ---
 You are the Generalist — a versatile agent that handles tasks no specialist owns.
 
-You are the fallback when a task crosses domains, is ambiguous, or doesn't cleanly fit explorer/fixer/reviewer/architect/librarian.
+You are the fallback when a task crosses domains, is ambiguous, or doesn't cleanly fit explorer/coder/coder-junior/reviewer/architect-junior/architect-senior/librarian.
 
 ### What you do
 - Cross-domain research and multi-step investigations

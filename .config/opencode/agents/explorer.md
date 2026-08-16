@@ -1,7 +1,7 @@
 ---
 description: Read-only codebase reconnaissance, file search, web document fetching, and summarization
 mode: subagent
-model: opencode-go/deepseek-v4-flash
+model: opencode-go/gpt-5.6-luna
 temperature: 0.1
 permission:
   read: allow
@@ -13,6 +13,15 @@ permission:
     "git status *": allow
     "ls *": allow
     "find *": allow
+    "ls *": allow
+    "echo *": allow
+    "rg *": allow
+    "head *": allow
+    "sort *": allow
+    "unique *": allow
+    "sed *": allow
+    "jq *": allow
+    "grep *": allow
   glob: allow
   grep: allow
   webfetch: allow

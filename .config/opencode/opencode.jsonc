@@ -3,18 +3,30 @@
   "default_agent": "orchestrator",
   "agent": {
     "build": { "disable": true },
-    "plan": { "disable": true }
+    "plan": { "disable": true },
   },
   "autoupdate": "notify",
   "plugin": [
     "superpowers@git+https://github.com/obra/superpowers.git",
     "@devtheops/opencode-plugin-otel",
-    "opencode-mem",
-    "@slkiser/opencode-quota",
-    "opencode-skill-creator",
+    // "opencode-mem",
+    // "opencode-skill-creator",
+    "@williamcr01/opencode-tps",
   ],
+  "mcp": {
+    "home-assistant": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://hass.techtales.io/api/mcp",
+      "oauth": {
+        "clientId": "http://localhost:19876",
+        "redirectUri": "http://localhost:19876/mcp/oauth/callback",
+      },
+    },
+  },
   "lsp": true,
-  "small_model": "opencode-go/deepseek-v4-flash",
+  // "small_model": "opencode-go/deepseek-v4-flash",
+  "small_model": "unsloth/unsloth/gemma-4-E4B-it-GGUF:UD-Q4_K_XL",
   // "small_model": "llamacpp/qwen2.5-7b-instruct-q3_k_m.gguf",
   "permission": {
     "*": "ask",
@@ -30,12 +42,10 @@
     },
     "edit": "allow",
     "bash": {
-      "*.config/gh/config.yml*": "ask",
-      "*secret*": "ask",
+      "*": "allow",
       "gh pr list*": "allow",
       "gh pr diff*": "allow",
       "gh search prs*": "allow",
-      "gh pr comment*": "ask",
       "gh pr view*": "allow",
       "gh release list*": "allow",
       "git add *": "allow",
@@ -45,14 +55,16 @@
       "git branch *": "allow",
       "yamllint *": "allow",
       "kubectl config current-context*": "allow",
-      "kubectl get secret*": "ask",
       "kubectl get pod*": "allow",
       "kubectl describe pod*": "allow",
       "kubectl logs*": "allow",
       "kubectl get helmreleases*": "allow",
-      "*": "allow",
+      "*.config/gh/config.yml*": "ask",
+      "*secret*": "ask",
+      "gh pr comment*": "ask",
+      "kubectl get secret*": "ask",
       "sudo *": "deny",
-      "sudo*": "deny",
+      "sudo*": "deny"
     },
     "glob": "allow",
     "grep": "allow",
@@ -63,7 +75,11 @@
     "question": "allow",
     "webfetch": "allow",
     "websearch": "allow",
-    "external_directory": "ask",
+    "external_directory": {
+      "*": "ask",
+      "/tmp/opencode": "allow",
+      "/tmp/opencode/**": "allow"
+    },
     "doom_loop": "ask",
   },
   "provider": {
@@ -77,6 +93,22 @@
         "qwen2.5-7b-instruct-q3_k_m.gguf": {
           "name": "Qwen 2.5 VL 7b (local)",
         },
+      },
+    },
+    "unsloth": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "unsloth localhost",
+      "options": {
+        "baseURL": "http://localhost:8000/v1",
+        "apiKey": "{file:~/secrets/opencode-unsloth-token}",
+      },
+      "models": {
+        "unsloth/gemma-4-E4B-it-GGUF:UD-Q4_K_XL": {
+          "name": "Gemma 4 E4B it",
+          "limit": {
+            "context": 131072,
+            "output": 8192
+          },
       },
     },
   },
