@@ -101,7 +101,7 @@ pacman_packages=(
     pipewire pipewire-pulse wireplumber
     polkit-gnome networkmanager nm-connection-editor network-manager-applet
     eza bat ripgrep libfido2
-    neovim code docker starship openssh intel-ucode ipmitool tcpdump
+    neovim code docker docker-compose starship nvidia-container-toolkit openssh intel-ucode ipmitool tcpdump
 )
 
 echo ""
