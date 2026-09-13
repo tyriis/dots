@@ -91,6 +91,8 @@ fi
 pacman_packages=(
     hyprland waybar kitty rofi-wayland swaync uwsm
     hyprlock hypridle hyprsunset hyprpaper
+    sddm qt6-5compat qt6-svg qt6-multimedia qt6-multimedia-ffmpeg
+    gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly xorg-xrandr
     btop htop cliphist cuda wl-clipboard grim slurp
     pavucontrol blueman brightnessctl
     gtk3 gtk4 qt6ct xdg-user-dirs xsettingsd
@@ -102,7 +104,7 @@ pacman_packages=(
     polkit-gnome networkmanager nm-connection-editor network-manager-applet
     eza bat ripgrep libfido2
     7zip btrfs-progs cmake hashcat less mosquitto obsidian tig unzip vim wev wget zed
-    neovim code docker docker-compose starship nvidia-container-toolkit openssh intel-ucode ipmitool tcpdump
+    neovim code docker docker-compose starship nvidia-container-toolkit openssh intel-ucode ipmitool tcpdump bind
 )
 
 echo ""
