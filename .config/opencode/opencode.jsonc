@@ -2,32 +2,45 @@
   "$schema": "https://opencode.ai/config.json",
   "default_agent": "orchestrator",
   "agent": {
-    "build": { "disable": true },
-    "plan": { "disable": true },
+    // "build": { "disable": true },
+    // "plan": { "disable": true }
   },
   "autoupdate": "notify",
   "plugin": [
     "superpowers@git+https://github.com/obra/superpowers.git",
     "@devtheops/opencode-plugin-otel",
+    "oh-my-opencode-slim",
+    // "@upstash/context7-opencode",
+    "@williamcr01/opencode-tps"
     // "opencode-mem",
     // "opencode-skill-creator",
-    "@williamcr01/opencode-tps",
   ],
   "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "enabled": true,
+      "headers": {
+        "Authorization": "Bearer {file:~/secrets/opencode-ctx7-token}"
+      }
+    },
     "home-assistant": {
       "enabled": true,
       "type": "remote",
       "url": "https://hass.techtales.io/api/mcp",
       "oauth": {
         "clientId": "http://localhost:19876",
-        "redirectUri": "http://localhost:19876/mcp/oauth/callback",
-      },
-    },
+        "redirectUri": "http://localhost:19876/mcp/oauth/callback"
+      }
+    }
   },
   "lsp": true,
   // "small_model": "opencode-go/deepseek-v4-flash",
-  "small_model": "unsloth/unsloth/gemma-4-E4B-it-GGUF:UD-Q4_K_XL",
+  // "small_model": "unsloth/unsloth/gemma-4-E4B-it-GGUF:UD-Q4_K_XL",
+  "small_model": "techtales/unsloth/gemma-4-E2B-it-GGUF",
   // "small_model": "llamacpp/qwen2.5-7b-instruct-q3_k_m.gguf",
+  // "small_model": "techtales/gemma3:1b",
+  // "small_model": "techtales/qwen3.8-flash-next",
   "permission": {
     "*": "ask",
     "read": {
@@ -38,7 +51,7 @@
       "*.env.example": "allow",
       "*secret*": "ask",
       "*external-secret.yaml": "allow",
-      "documents/obsidian*": "allow",
+      "documents/obsidian*": "allow"
     },
     "edit": "allow",
     "bash": {
@@ -78,39 +91,81 @@
     "external_directory": {
       "*": "ask",
       "/tmp/opencode": "allow",
-      "/tmp/opencode/**": "allow"
+      "/tmp/opencode/**": "allow",
+      "/home/nils/documents/obsidian/knowledge": "allow",
+      "/home/nils/documents/obsidian/knowledge/**": "allow"
     },
-    "doom_loop": "ask",
+    "doom_loop": "ask"
   },
   "provider": {
     "llamacpp": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "Llama.cpp Local Server",
       "options": {
-        "baseURL": "http://localhost:8085/v1",
+        "baseURL": "http://localhost:8085/v1"
       },
       "models": {
         "qwen2.5-7b-instruct-q3_k_m.gguf": {
-          "name": "Qwen 2.5 VL 7b (local)",
-        },
-      },
+          "name": "Qwen 2.5 VL 7b (local)"
+        }
+      }
     },
-    "unsloth": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "unsloth localhost",
-      "options": {
-        "baseURL": "http://localhost:8000/v1",
-        "apiKey": "{file:~/secrets/opencode-unsloth-token}",
+    // "unsloth": {
+    //  "npm": "@ai-sdk/openai-compatible",
+    //  "name": "unsloth localhost",
+    //  "options": {
+    //    "baseURL": "http://localhost:8000/v1",
+    //    "apiKey": "{file:~/secrets/opencode-unsloth-token}"
+    //  },
+    //  "models": {
+    //    "unsloth/gemma-4-E4B-it-GGUF:UD-Q4_K_XL": {
+    //      "name": "Gemma 4 E4B it",
+    //      "limit": {
+    //       "context": 131072,
+    //        "output": 8192
+    //      }
+    //     }
+    //   }
+    // },
+    "techtales": {
+      "npm": "@ai-sdk/openai-compatible",  
+      "name": "techtales",
+      "options": {                                                                                                          
+        "baseURL": "https://techtales.ai/v1",
+	"apiKey": "{file:~/secrets/opencode-techtales-token}"
       },
       "models": {
-        "unsloth/gemma-4-E4B-it-GGUF:UD-Q4_K_XL": {
-          "name": "Gemma 4 E4B it",
-          "limit": {
-            "context": 131072,
-            "output": 8192
-          },
+        // "deepseek-v4-flash-0731": {
+        //   "name": "deepseek-v4-flash-0731"
+        // },
+        "qwen3.8-flash-next": {
+          "name": "qwen3.8-flash-next"
         },
-      },
-    },
-  },
+	"gemma3:1b": {
+          "name": "gemma3:1b",
+          "limit": {
+             "context": 32768,
+	     "output": 8192
+          }
+	},
+	"gemma4:e2b": {
+          "name": "gemma4:e2b",
+          "limit": {
+            "context": 128000,
+            "output": 8192
+          }
+        },
+        "deepseek-v4-flash": {
+          "name": "deepseek-v4-flash"
+        },
+        "unsloth/gemma-4-E2B-it-GGUF": {
+          "name": "gemma-4-E2B-it-GGUF",
+	  "limit": {
+             "context": 131072,
+             "output": 8192
+          }
+	}
+      }
+    }
+  }
 }
