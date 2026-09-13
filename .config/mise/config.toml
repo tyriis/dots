@@ -9,16 +9,16 @@ gpg_verify = false
 
 [tools]
 # https://mise-versions.jdx.dev/tools/pnpm
-"npm:pnpm" = "11.22.0"
+"npm:pnpm" = "11.25.0"
 # "aqua:direnv/direnv" = "2.37.1"
 # https://mise-versions.jdx.dev/tools/k9s
 "aqua:derailed/k9s" = "0.51.0"
 # https://mise-versions.jdx.dev/tools/kubectl
-"aqua:kubernetes/kubernetes/kubectl" = "1.36.3"
+"aqua:kubernetes/kubernetes/kubectl" = "1.37.0"
 # https://mise-versions.jdx.dev/tools/task
-"aqua:go-task/task" = "3.52.0"
+"aqua:go-task/task" = "3.53.1"
 # https://mise-versions.jdx.dev/tools/usage
-"aqua:jdx/usage" = "5.1.0"
+"aqua:jdx/usage" = "6.6.1"
 # https://mise-versions.jdx.dev/tools/yq
 "aqua:mikefarah/yq" = "4.53.6"
 # https://mise-versions.jdx.dev/tools/jq
@@ -28,22 +28,22 @@ gpg_verify = false
 # https://mise-versions.jdx.dev/tools/openbao
 "aqua:openbao/openbao/bao" = "2.6.1"
 # https://mise-versions.jdx.dev/tools/gh
-"aqua:cli/cli" = "2.98.0"
+"aqua:cli/cli" = "2.100.0"
 # "github:jdx/fnox" = "1.33.0"
 # https://mise-versions.jdx.dev/tools/opencode
-"aqua:anomalyco/opencode" = "1.18.21"
+"aqua:anomalyco/opencode" = "1.18.29"
 # https://mise-versions.jdx.dev/tools/fzf
 "aqua:junegunn/fzf" = "0.74.3"
 # https://mise-versions.jdx.dev/tools/tmux
-"aqua:tmux/tmux-builds" = "3.6b"
-# https://mise-versions.jdx.dev/tools/node
-"core:node" = "26.7.0"
+"aqua:tmux/tmux-builds" = "3.7c"
 # https://mise-versions.jdx.dev/tools/helm
 "aqua:helm/helm" = "4.2.4"
 # https://mise-versions.jdx.dev/tools/lefthook
-"aqua:evilmartians/lefthook" = "2.1.11"
+"aqua:evilmartians/lefthook" = "2.1.12"
 # https://mise-versions.jdx.dev/tools/rtk
-"aqua:rtk-ai/rtk" = "0.45.0"
+"aqua:rtk-ai/rtk" = "0.48.0"
+bun = "latest"
+node = "26.8.1"
 
 [env]
 OBSIDIAN_VAULT_PATH = "$HOME/documents/obsidian"
@@ -54,3 +54,5 @@ OPENCODE_OTLP_PROTOCOL = "http/protobuf"
 OPENCODE_OTLP_HEADERS_HELPER = "$HOME/.local/bin/grafana-cloud-otlp-header.sh"
 OPENCODE_RESOURCE_ATTRIBUTES = "service.name=tyriis"
 VAULT_ADDR = "https://secrets.techtales.io"
+_.file = "~/secrets/opencode-exa.env"
+OPENCODE_WEBSEARCH_PROVIDER = "exa"
