@@ -30,7 +30,7 @@ echo ":: Install NVIDIA proprietary driver? [y/N]"
 read -r nvidia_answer
 if [[ "$nvidia_answer" =~ ^[Yy]$ ]]; then
     echo ":: Installing NVIDIA driver..."
-    sudo pacman -S --noconfirm --needed nvidia-open-dkms nvidia-utils efibootmgr
+    sudo pacman -S --noconfirm --needed nvidia-open nvidia-utils efibootmgr
 
     # Blacklist nouveau
     echo "blacklist nouveau" | sudo tee /etc/modprobe.d/blacklist-nouveau.conf > /dev/null
