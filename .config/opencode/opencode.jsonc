@@ -35,12 +35,7 @@
     },
   },
   "lsp": true,
-  // "small_model": "opencode-go/deepseek-v4-flash",
-  // "small_model": "unsloth/unsloth/gemma-4-E4B-it-GGUF:UD-Q4_K_XL",
-  "small_model": "techtales/gemma4:e2b",
-  // "small_model": "llamacpp/qwen2.5-7b-instruct-q3_k_m.gguf",
-  // "small_model": "techtales/gemma3:1b",
-  // "small_model": "techtales/qwen3.8-flash-next",
+  "small_model": "techtales/qwen3.8-flash-next",
   "permission": {
     "*": "ask",
     "read": {
@@ -98,35 +93,6 @@
     "doom_loop": "ask",
   },
   "provider": {
-    "llamacpp": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "Llama.cpp Local Server",
-      "options": {
-        "baseURL": "http://localhost:8085/v1",
-      },
-      "models": {
-        "qwen2.5-7b-instruct-q3_k_m.gguf": {
-          "name": "Qwen 2.5 VL 7b (local)",
-        },
-      },
-    },
-    // "unsloth": {
-    //  "npm": "@ai-sdk/openai-compatible",
-    //  "name": "unsloth localhost",
-    //  "options": {
-    //    "baseURL": "http://localhost:8000/v1",
-    //    "apiKey": "{file:~/secrets/opencode-unsloth-token}"
-    //  },
-    //  "models": {
-    //    "unsloth/gemma-4-E4B-it-GGUF:UD-Q4_K_XL": {
-    //      "name": "Gemma 4 E4B it",
-    //      "limit": {
-    //       "context": 131072,
-    //        "output": 8192
-    //      }
-    //     }
-    //   }
-    // },
     "techtales": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "techtales",
@@ -135,35 +101,8 @@
         "apiKey": "{file:~/secrets/opencode-techtales-token}",
       },
       "models": {
-        // "deepseek-v4-flash-0731": {
-        //   "name": "deepseek-v4-flash-0731"
-        // },
         "qwen3.8-flash-next": {
           "name": "qwen3.8-flash-next",
-        },
-        "gemma3:1b": {
-          "name": "gemma3:1b",
-          "limit": {
-            "context": 32768,
-            "output": 8192,
-          },
-        },
-        "gemma4:e2b": {
-          "name": "gemma4:e2b",
-          "limit": {
-            "context": 128000,
-            "output": 8192,
-          },
-        },
-        "deepseek-v4-flash": {
-          "name": "deepseek-v4-flash",
-        },
-        "unsloth/gemma-4-E2B-it-GGUF": {
-          "name": "gemma-4-E2B-it-GGUF",
-          "limit": {
-            "context": 131072,
-            "output": 8192,
-          },
         },
       },
     },
