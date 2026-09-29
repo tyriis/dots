@@ -104,7 +104,7 @@ pacman_packages=(
     polkit-gnome networkmanager nm-connection-editor network-manager-applet
     eza bat ripgrep libfido2
     7zip btrfs-progs cmake hashcat less mosquitto obsidian prismlauncher tig unzip vim wev wget zed
-    neovim code docker docker-compose starship nvidia-container-toolkit openssh intel-ucode ipmitool tcpdump bind
+    neovim code docker docker-compose starship nvidia-container-toolkit openssh intel-ucode ipmitool ethtool tcpdump bind
 )
 
 echo ""
