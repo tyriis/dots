@@ -1,0 +1,17 @@
+# Reinstalled by install.sh to /etc/systemd/system/ (system unit: writing
+# /proc/acpi/wakeup requires root). Keeps USB (XHC) and ACPI (AWAC) devices
+# from waking the machine, so only a WoL magic packet does.
+# After=tlp.service: if TLP is installed later, it must not re-enable wake
+# sources after us (TLP disables WoL by default; see WOL_DISABLE in install.sh).
+
+[Unit]
+Description=Disable XHC and AWAC ACPI wake devices
+After=tlp.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c "grep -q 'XHC.*\\*enabled' /proc/acpi/wakeup && echo XHC > /proc/acpi/wakeup || true"
+ExecStart=/bin/sh -c "grep -q 'AWAC.*\\*enabled' /proc/acpi/wakeup && echo AWAC > /proc/acpi/wakeup || true"
+
+[Install]
+WantedBy=multi-user.target

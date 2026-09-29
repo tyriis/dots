@@ -148,6 +148,36 @@ echo ""
 echo ":: Enabling ssh-agent systemd user service..."
 systemctl --user enable --now ssh-agent.service 2>/dev/null || echo "!! Could not enable. Run: systemctl --user enable --now ssh-agent.service"
 
+# WAKE-ON-LAN: only a magic packet should wake this machine
+# BIOS (manual, survives reinstall): APM -> "Power On By PCI-E: Enabled", "ErP Ready: Disabled"
+echo ""
+echo ":: Setting up Wake-on-LAN..."
+
+# System unit: disable XHC/AWAC ACPI wake devices at boot
+sudo cp "$HOME/system/disable-usb-acpi-wake.service" /etc/systemd/system/disable-usb-acpi-wake.service
+sudo systemctl daemon-reload
+sudo systemctl enable --now disable-usb-acpi-wake.service
+
+# Persist WoL on the NIC (otherwise luck-dependent per boot)
+CONN=$(nmcli -t -f NAME,TYPE connection show --active 2>/dev/null | awk -F: '$2=="802-3-ethernet"{print $1; exit}')
+if [ -n "$CONN" ]; then
+    echo ":: Enable WoL on connection '$CONN'? [Y/n]"
+    read -r wol_answer || wol_answer="y"
+    if [[ "$wol_answer" =~ ^[Yy]$ ]] || [ -z "$wol_answer" ]; then
+        sudo nmcli connection modify "$CONN" 802-3-ethernet.wake-on-lan magic
+        echo ":: WoL enabled on '$CONN'. Verify with: ethtool <iface> | grep Wake-on"
+    fi
+else
+    echo "!! No active NetworkManager connection found. Run manually:"
+    echo "   sudo nmcli connection modify \"<name>\" 802-3-ethernet.wake-on-lan magic"
+fi
+
+# TLP disables WoL by default — would silently break WoL
+if pacman -Q tlp &>/dev/null && [ -f /etc/tlp.conf ]; then
+    echo ":: TLP detected: setting WOL_DISABLE=N..."
+    sudo sed -i 's/^#\?WOL_DISABLE=.*/WOL_DISABLE=N/' /etc/tlp.conf
+fi
+
 echo ""
 echo "=== Installation Complete! ==="
 echo "Run ./setup.sh to initialize dotfiles"
