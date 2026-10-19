@@ -44,6 +44,7 @@ gpg_verify = false
 "aqua:rtk-ai/rtk" = "0.48.0"
 bun = "latest"
 node = "26.8.1"
+"aqua:fluxcd/flux2" = "latest"
 
 [env]
 OBSIDIAN_VAULT_PATH = "$HOME/documents/obsidian"
