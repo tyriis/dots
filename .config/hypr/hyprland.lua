@@ -17,7 +17,7 @@ local c = require("themes.mocha")
 --------------------
 
 hl.monitor({ output = "HDMI-A-4", mode = "2560x1440@144", position = "auto", scale = 1 })
-hl.monitor({ output = "HDMI-A-2", mode = "2560x1440@60", position = "auto", scale = 1 })
+hl.monitor({ output = "HDMI-A-2", mode = "modeline 241.50 2560 2608 2640 2720 1440 1443 1448 1481", position = "auto", scale = 1 })
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
