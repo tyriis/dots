@@ -24,6 +24,7 @@ hl.monitor({ output = "HDMI-A-2", mode = "modeline 241.50 2560 2608 2640 2720 14
 -------------------------------
 
 hl.env("XDG_SCREENSHOTS_DIR", os.getenv("HOME") .. "/pictures/screenshots")
+hl.env("HERMES_DESKTOP_NVIDIA_SWIFTSHADER", "0")
 
 -------------------
 ---- AUTOSTART ----
