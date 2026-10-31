@@ -77,3 +77,23 @@ ssh-add -l >/dev/null 2>&1
 if [ $? -eq 1 ]; then
     ssh-add ~/.ssh/id_ed25519_sk_touch
 fi
+
+# git-commit-guardrail:lefthook-config
+[ -z "$LEFTHOOK_CONFIG" ] && export LEFTHOOK_CONFIG="$HOME/.config/git-commit/lefthook.yml"
+
+. "$HOME/.local/bin/env"
+
+# pnpm
+export PNPM_HOME="/home/nils/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
+
+# Hermes Agent command
+case ":$PATH:" in *":$HOME/.local/bin:"*) ;; *) export PATH="$HOME/.local/bin:$PATH" ;; esac
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
