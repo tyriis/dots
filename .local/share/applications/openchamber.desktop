@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=OpenChamber
+Comment=OpenCode desktop app (self-updating)
+Exec=/home/nils/.local/opt/OpenChamber/OpenChamber.AppImage --no-sandbox --ozone-platform=wayland
+Icon=webapp
+Terminal=false
+Categories=Development;
