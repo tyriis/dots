@@ -8,10 +8,8 @@
   "autoupdate": "notify",
   "plugin": [
     "superpowers@git+https://github.com/obra/superpowers.git",
-    "@devtheops/opencode-plugin-otel",
     "oh-my-opencode-slim",
     // "@upstash/context7-opencode",
-    "@williamcr01/opencode-tps",
     // "opencode-mem",
     // "opencode-skill-creator",
   ],
@@ -102,9 +100,19 @@
       },
       "models": {
         "qwen3.8-flash-next": {
-          "name": "qwen3.8-flash-next",
+          "name": "Qwen3.8 Flash Next",
+          "attachment": true,
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "tool_call": true,
+          "reasoning": true,
+          "temperature": true,
+          "limit": { "context": 262144, "output": 64000 },
+          "cost": { "input": 0.15, "output": 0.47, "cache_read": 0.016, "cache_write": 0.2 },
         },
       },
     },
   },
+  "disabled_providers": [
+    "opencode"
+  ],
 }
