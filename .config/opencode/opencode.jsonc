@@ -90,6 +90,19 @@
     },
     "doom_loop": "ask",
   },
+  // V2 permission rules, merged after the deprecated `permission` object.
+  // Last match wins; the allows below override the catch-all ask.
+  "permissions": [
+    // Restore the external-directory prompt upstream removed in PR #53585
+    // (shipped in v2.0.25). Keep in sync with the v1 block above.
+    { "action": "external_directory", "resource": "*", "effect": "ask" },
+    { "action": "external_directory", "resource": "/tmp/opencode/*", "effect": "allow" },
+    { "action": "external_directory", "resource": "~/documents/obsidian/knowledge/*", "effect": "allow" },
+    // opencode materialises git+ plugins (superpowers et al.) under
+    // ~/.cache/opencode/ and reads their skill files at runtime; without
+    // this rule every skill load trips the catch-all ask.
+    { "action": "external_directory", "resource": "~/.cache/opencode/*", "effect": "allow" },
+  ],
   "provider": {
     "techtales": {
       "npm": "@ai-sdk/openai-compatible",
@@ -108,6 +121,14 @@
           "temperature": true,
           "limit": { "context": 262144, "output": 64000 },
           "cost": { "input": 0.15, "output": 0.47, "cache_read": 0.016, "cache_write": 0.2 },
+          // Gateway supports reasoning_effort: xhigh (default), medium, low.
+          // The "thinking" variant is what OpenChamber's routing requests.
+          "variants": {
+            "thinking": { "reasoningEffort": "xhigh" },
+            "low": { "reasoningEffort": "low" },
+            "medium": { "reasoningEffort": "medium" },
+            "xhigh": { "reasoningEffort": "xhigh" },
+          },
         },
       },
     },
