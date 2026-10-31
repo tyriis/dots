@@ -138,6 +138,33 @@ if command -v mise &> /dev/null; then
     mise use -g fzf@latest
 fi
 
+# BUN + OPENCODE: opencode CLI via bun global
+if ! command -v bun &> /dev/null && [ ! -x "$HOME/.bun/bin/bun" ]; then
+    echo ""
+    echo ":: Installing bun..."
+    curl -fsSL https://bun.sh/install | bash
+fi
+# renovate: datasource=npm depName=@opencode/cli
+OPENCODE_VERSION=2.2.5
+echo ""
+echo ":: Installing opencode ${OPENCODE_VERSION} via bun..."
+"$HOME/.bun/bin/bun" install -g "@opencode/cli@${OPENCODE_VERSION}"
+"$HOME/.bun/bin/bun" pm -g trust --all
+
+# OPENCHAMBER: AppImage in user-writable path, self-updates from there once
+# renovate: datasource=github-releases depName=openchamber/openchamber
+OPENCHAMBER_VERSION=2.5.3
+if [ ! -f "$HOME/.local/opt/OpenChamber/OpenChamber.AppImage" ]; then
+    echo ""
+    echo ":: Installing OpenChamber ${OPENCHAMBER_VERSION} AppImage..."
+    mkdir -p "$HOME/.local/opt/OpenChamber"
+    curl -fSL -o "$HOME/.local/opt/OpenChamber/OpenChamber.AppImage" \
+        "https://github.com/openchamber/openchamber/releases/download/v${OPENCHAMBER_VERSION}/OpenChamber-${OPENCHAMBER_VERSION}-linux-x86_64.AppImage"
+    chmod +x "$HOME/.local/opt/OpenChamber/OpenChamber.AppImage"
+else
+    echo ":: OpenChamber AppImage already present, skipping (self-updates in-app)"
+fi
+
 # SYSTEMD LOGIND: Ignore Power Key
 echo ""
 echo ":: Configuring systemd-logind to let Hyprland handle the power key..."
