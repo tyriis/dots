@@ -97,6 +97,7 @@
     // (shipped in v2.0.25). Keep in sync with the v1 block above.
     { "action": "external_directory", "resource": "*", "effect": "ask" },
     { "action": "external_directory", "resource": "/tmp/opencode/*", "effect": "allow" },
+    { "action": "external_directory", "resource": "~/research/*", "effect": "allow" },
     { "action": "external_directory", "resource": "~/documents/obsidian/knowledge/*", "effect": "allow" },
     // opencode materialises git+ plugins (superpowers et al.) under
     // ~/.cache/opencode/ and reads their skill files at runtime; without
