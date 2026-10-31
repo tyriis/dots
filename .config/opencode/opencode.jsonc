@@ -123,9 +123,10 @@
           "limit": { "context": 262144, "output": 64000 },
           "cost": { "input": 0.15, "output": 0.47, "cache_read": 0.016, "cache_write": 0.2 },
           // Gateway supports reasoning_effort: xhigh (default), medium, low.
-          // The "thinking" variant is what OpenChamber's routing requests.
+          // The "thinking" variant is what OpenChamber's routing requests —
+          // pinned to medium; the gateway default (xhigh) is left unused.
           "variants": {
-            "thinking": { "reasoningEffort": "xhigh" },
+            "thinking": { "reasoningEffort": "medium" },
             "low": { "reasoningEffort": "low" },
             "medium": { "reasoningEffort": "medium" },
             "xhigh": { "reasoningEffort": "xhigh" },
