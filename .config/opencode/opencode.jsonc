@@ -122,9 +122,11 @@
           "temperature": true,
           "limit": { "context": 262144, "output": 64000 },
           "cost": { "input": 0.15, "output": 0.47, "cache_read": 0.016, "cache_write": 0.2 },
+          // Base (no-variant) requests — OpenChamber's "default" — run medium
+          // instead of the gateway's xhigh default.
+          "options": { "reasoningEffort": "medium" },
           // Gateway supports reasoning_effort: xhigh (default), medium, low.
-          // The "thinking" variant is what OpenChamber's routing requests —
-          // pinned to medium; the gateway default (xhigh) is left unused.
+          // Explicit variant selections override `options` above.
           "variants": {
             "thinking": { "reasoningEffort": "medium" },
             "low": { "reasoningEffort": "low" },
