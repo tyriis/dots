@@ -33,7 +33,7 @@
     },
   },
   "lsp": true,
-  "small_model": "techtales/qwen3.8-flash-next",
+  "small_model": "techtales/qwen3.8-flash-next-low",
   "permission": {
     "*": "ask",
     "read": {
@@ -133,6 +133,18 @@
             "medium": { "reasoningEffort": "medium" },
             "xhigh": { "reasoningEffort": "xhigh" },
           },
+        },
+        "qwen3.8-flash-next-low": {
+          "name": "Qwen3.8 Flash Next (low)",
+          "attachment": true,
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "tool_call": true,
+          "reasoning": true,
+          "temperature": true,
+          "limit": { "context": 262144, "output": 64000 },
+          "cost": { "input": 0.15, "output": 0.47, "cache_read": 0.016, "cache_write": 0.2 },
+          // small_model target: same model, low effort.
+          "options": { "reasoningEffort": "low" },
         },
       },
     },
