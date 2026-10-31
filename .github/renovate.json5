@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "regexManagers": [
+    {
+      "fileMatch": ["(^|/)install\\.sh$"],
+      // Bumps the X_VERSION pins in install.sh that carry a preceding
+      // "# renovate: datasource=… depName=…" marker.
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)[^#]*?(?<currentValue>[0-9][0-9.]*)"
+      ],
+    },
+  ],
+}
