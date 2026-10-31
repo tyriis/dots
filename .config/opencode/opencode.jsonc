@@ -128,7 +128,6 @@
           // Gateway supports reasoning_effort: xhigh (default), medium, low.
           // Explicit variant selections override `options` above.
           "variants": {
-            "thinking": { "reasoningEffort": "medium" },
             "low": { "reasoningEffort": "low" },
             "medium": { "reasoningEffort": "medium" },
             "xhigh": { "reasoningEffort": "xhigh" },
