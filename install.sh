@@ -175,6 +175,18 @@ echo ""
 echo ":: Enabling ssh-agent systemd user service..."
 systemctl --user enable --now ssh-agent.service 2>/dev/null || echo "!! Could not enable. Run: systemctl --user enable --now ssh-agent.service"
 
+# TPM SSH: ssh-tpm-agent needs group tss access to /dev/tpmrm0
+echo ""
+echo ":: Setting up TPM SSH agent..."
+if getent group tss >/dev/null && ! id -nG | grep -qw tss; then
+    echo "!! Adding current user to group tss (requires re-login/reboot to take effect)"
+    sudo usermod -aG tss "$USER"
+fi
+if command -v ssh-tpm-agent &> /dev/null; then
+    ssh-tpm-agent --install-user-units
+    systemctl --user enable --now ssh-tpm-agent.socket 2>/dev/null || echo "!! Could not enable. Run: systemctl --user enable --now ssh-tpm-agent.socket"
+fi
+
 # WAKE-ON-LAN: only a magic packet should wake this machine
 # BIOS (manual, survives reinstall): APM -> "Power On By PCI-E: Enabled", "ErP Ready: Disabled"
 echo ""
@@ -208,6 +220,7 @@ fi
 echo ""
 echo "=== Installation Complete! ==="
 echo "Run ./setup.sh to initialize dotfiles"
-echo "After reboot, run: git config --global gpg.format ssh"
-echo "  && git config --global user.signingkey ~/.ssh/id_ed25519_sk.pub"
+echo "After reboot, run: ssh-tpm-keygen -t ecdsa -b 256 -f ~/.ssh/id_tpm -N ''"
+echo "  && git config --global gpg.format ssh"
+echo "  && git config --global user.signingkey ~/.ssh/id_tpm.pub"
 echo "  && git config --global commit.gpgsign true"
