@@ -13,22 +13,26 @@
     // "opencode-mem",
     // "opencode-skill-creator",
   ],
+  // Server entries nest under "servers": the direct-under-mcp form is
+  // deprecated in https://opencode.ai/config.json (tyriis/dots#18).
   "mcp": {
-    "context7": {
-      "type": "remote",
-      "url": "https://mcp.context7.com/mcp",
-      "enabled": true,
-      "headers": {
-        "Authorization": "Bearer {file:~/secrets/opencode-ctx7-token}",
+    "servers": {
+      "context7": {
+        "type": "remote",
+        "url": "https://mcp.context7.com/mcp",
+        "enabled": true,
+        "headers": {
+          "Authorization": "Bearer {file:~/secrets/opencode-ctx7-token}",
+        },
       },
-    },
-    "home-assistant": {
-      "enabled": true,
-      "type": "remote",
-      "url": "https://hass.techtales.io/api/mcp",
-      "oauth": {
-        "clientId": "http://localhost:19876",
-        "redirectUri": "http://localhost:19876/mcp/oauth/callback",
+      "home-assistant": {
+        "enabled": true,
+        "type": "remote",
+        "url": "https://hass.techtales.io/api/mcp",
+        "oauth": {
+          "clientId": "http://localhost:19876",
+          "redirectUri": "http://localhost:19876/mcp/oauth/callback",
+        },
       },
     },
   },
